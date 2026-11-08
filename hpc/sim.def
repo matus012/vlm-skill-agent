@@ -1,0 +1,55 @@
+Bootstrap: docker
+From: ros:jazzy
+# 115 clinic sim image (task 006 M1): ROS 2 Jazzy + Gazebo Harmonic (ros_gz vendor packages) + Nav2 + TurtleBot 4 sim,
+# headless, ogre2 through EGL on the GPU node. Ubuntu 24.04, Python 3.12 (ROS's system Python).
+# No project code inside: $PROJ/repo is bind-mounted at run time; the colcon overlay is built into $WS_LOCAL.
+# Build on the PERUN login node: hpc/build_sim.sh (apptainer build --fakeroot). Versions: hpc/SIM_VERSIONS.md.
+# The NVIDIA EGL driver comes in via `apptainer exec --nv`; glvnd finds it through the vendor file below (114 pattern).
+
+%files
+    pyproject.toml /opt/proj/pyproject.toml
+    uv.lock /opt/proj/uv.lock
+
+%environment
+    export PYTHONUNBUFFERED=1
+    export __EGL_VENDOR_LIBRARY_DIRS=/usr/share/glvnd/egl_vendor.d
+
+%post
+    set -eu
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
+    # The set the local machine sim uses (sim/launch_clinic.sh, sim/launch/*.py, sim/build.sh, probes/*.py); gz comes from the
+    # ros-jazzy-gz-*-vendor packages that ros-jazzy-ros-gz pulls (as on the local machine), fastdds from ros-jazzy-fastrtps.
+    # git: M2 probes run `git show <tag>:<path>` in $PROJ/repo.
+    # The two colcon extensions are Recommends (skipped here) that sim/build.sh needs (--allow-overriding).
+    apt-get install -y --no-install-recommends \
+        ros-jazzy-ros-gz ros-jazzy-navigation2 ros-jazzy-nav2-bringup ros-jazzy-slam-toolbox \
+        ros-jazzy-turtlebot4-simulator ros-jazzy-turtlebot4-navigation ros-jazzy-turtlebot4-description \
+        ros-jazzy-turtlebot4-viz ros-jazzy-irobot-create-gz-bringup ros-jazzy-irobot-create-common-bringup \
+        ros-jazzy-xacro ros-jazzy-cv-bridge ros-jazzy-rmw-fastrtps-cpp ros-jazzy-fastrtps \
+        python3-opencv python3-yaml python3-colcon-common-extensions procps gawk curl ca-certificates git \
+        python3-colcon-override-check python3-colcon-installed-package-information \
+        libegl1 libgl1 libglvnd0 libgles2
+    rm -rf /var/lib/apt/lists/*
+    mkdir -p /usr/share/glvnd/egl_vendor.d
+    printf '{\n  "file_format_version" : "1.0.0",\n  "ICD" : { "library_path" : "libEGL_nvidia.so.0" }\n}\n' \
+        > /usr/share/glvnd/egl_vendor.d/10_nvidia.json
+    curl -LsSf https://astral.sh/uv/0.13.6/install.sh | env UV_INSTALL_DIR=/usr/local/bin UV_NO_MODIFY_PATH=1 sh
+    export UV_PYTHON_DOWNLOADS=never UV_LINK_MODE=copy UV_CACHE_DIR=/tmp/uv-cache
+    uv venv --system-site-packages --python /usr/bin/python3 /opt/venv
+    cd /opt/proj && UV_PROJECT_ENVIRONMENT=/opt/venv uv sync --frozen --no-install-project
+    rm -rf /tmp/uv-cache
+    chmod -R a+rX /opt/venv /opt/proj
+
+%test
+    bash -c 'source /opt/ros/jazzy/setup.bash
+      /opt/venv/bin/python -c "import rclpy, openai, numpy, yaml, PIL, cv2, jsonschema, pytest; print(\"rclpy ok, openai\", openai.__version__, \"numpy\", numpy.__version__, \"PIL\", PIL.__version__, \"cv2\", cv2.__version__); assert numpy.__version__.startswith(\"1.\")"
+      gz sim --version | head -1; git --version'
+
+%labels
+    project 115_vlm_agent
+    stack ros:jazzy noble py3.12 gz-harmonic nav2 turtlebot4-sim uv0.13.6 headless-egl
+
+%help
+    apptainer exec --nv --cleanenv sim.sif bash -c 'source /opt/ros/jazzy/setup.bash && ...'
+    Project python: /opt/venv/bin/python (system site packages, so rclpy imports once ROS is sourced).

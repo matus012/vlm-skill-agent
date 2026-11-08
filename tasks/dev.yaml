@@ -1,0 +1,32 @@
+# Phase 2 dev tasks (agent/INTERFACES.md section 6). Fixed layout, targets only from G9-passing classes
+# (toolbox, chair, bed, cabinet + state; context.md -> Task targets). No truth answers here: agent/tasks.py
+# derives them from sim/worlds/clinic/generated/truth.json. Dev prompts, Phase 3+ may use them.
+- {id: find-toolbox,  kind: find, prompt: "Find the red toolbox.", target: {object: toolbox_red_1}}
+- {id: find-cabinet,  kind: find, prompt: "Find the blue cabinet.", target: {object: cabinet_blue_1}}
+# Class targets (INTERFACES section 6): truth = the one room holding every instance; proof = any instance.
+- {id: find-beds,     kind: find, prompt: "Find the hospital beds.", target: {class: bed}}
+- {id: find-chairs,   kind: find, prompt: "Find the orange chairs.", target: {class: chair, colour: orange}}
+# Task 005 Find prompts (appended, so Phase 2's G1 plan, which cycles in file order, is unchanged).
+- {id: find-beds-where,   kind: find, prompt: "Where are the beds?", target: {class: bed}}
+- {id: find-chairs-plain, kind: find, prompt: "Find the chairs.",    target: {class: chair}}
+
+- {id: state-cabinet-open,   kind: check_state, prompt: "Is the storage cabinet open?",
+   target: {object: cabinet_blue_1, state: open}}
+- {id: state-cabinet-closed, kind: check_state, prompt: "Is the storage cabinet closed?",
+   target: {object: cabinet_blue_1, state: closed}}
+
+- {id: count-chairs, kind: count, prompt: "How many chairs are in reception?", target: {class: chair, room: reception}}
+- {id: count-beds,   kind: count, prompt: "How many beds are in the ward?",    target: {class: bed, room: ward}}
+
+# Conditional, both branches: the target is in if_not_in (cond-toolbox, cond-chairs-reception) / in else_room
+# (cond-toolbox-office, cond-cabinet-office, cond-beds-ward). Answers span storage, ward, reception.
+- {id: cond-toolbox, kind: conditional, prompt: "If the toolbox isn't in storage, check the office.",
+   target: {object: toolbox_red_1, if_not_in: storage, else_room: office}}
+- {id: cond-toolbox-office, kind: conditional, prompt: "If the toolbox isn't in the office, check storage.",
+   target: {object: toolbox_red_1, if_not_in: office, else_room: storage}}
+- {id: cond-cabinet-office, kind: conditional, prompt: "If the cabinet isn't in the office, check storage.",
+   target: {object: cabinet_blue_1, if_not_in: office, else_room: storage}}
+- {id: cond-beds-ward, kind: conditional, prompt: "If the beds aren't in the office, check the ward.",
+   target: {class: bed, if_not_in: office, else_room: ward}}
+- {id: cond-chairs-reception, kind: conditional, prompt: "If the chairs aren't in reception, check the ward.",
+   target: {class: chair, if_not_in: reception, else_room: ward}}

@@ -1,0 +1,424 @@
+{
+ "adapter_api": {
+  "Frame": [
+   [
+    "rgb",
+    "Image"
+   ],
+   [
+    "seg",
+    "numpy.ndarray | None"
+   ],
+   [
+    "meta",
+    "dict[str, typing.Any]"
+   ]
+  ],
+  "GoResult": [
+   [
+    "status",
+    "str"
+   ],
+   [
+    "nav_status",
+    "str"
+   ],
+   [
+    "sim_s",
+    "float"
+   ],
+   [
+    "wall_s",
+    "float"
+   ]
+  ],
+  "Photo": [
+   [
+    "number",
+    "int"
+   ],
+   [
+    "image",
+    "Image"
+   ],
+   [
+    "frame",
+    "agent.robot.Frame | None"
+   ]
+  ],
+  "abstract_methods": {
+   "go_to": "(self, x: float, y: float, yaw: float | None, timeout_s: float) -> agent.robot.GoResult",
+   "photo": "(self) -> agent.robot.Frame",
+   "pose": "(self) -> tuple[float, float, float]",
+   "sim_time": "(self) -> float",
+   "stop": "(self) -> None",
+   "turn_to": "(self, yaw: float) -> float",
+   "where": "(self) -> str"
+  }
+ },
+ "packet_fields": [
+  [
+   "photos",
+   "list[agent.robot.Photo]"
+  ],
+  [
+   "room",
+   "str"
+  ],
+  [
+   "places",
+   "list[str]"
+  ],
+  [
+   "history",
+   "list[str]"
+  ],
+  [
+   "last_result",
+   "str"
+  ],
+  [
+   "task",
+   "str"
+  ],
+  [
+   "step",
+   "int"
+  ]
+ ],
+ "packet_text_sha256": "259eb42f8c0c9e7cfc9ab12c306bd1631d924c8ec7c8f6011a6bcd490267dd98",
+ "runtime_rules": {
+  "COUNT_PATTERN": "^(0|[1-9][0-9]*)$",
+  "MALFORMED_LIMIT": 2,
+  "MAX_STEPS": 12,
+  "NAV_TIMEOUT_S": 120.0,
+  "PLACE_BOUND_M": 0.3,
+  "TASK_KINDS": [
+   "find",
+   "check_state",
+   "count",
+   "conditional"
+  ]
+ },
+ "system_prompt_sha256": "f8374e72f1b2fa018936f47d4c93533404b64a79f415cf5b5e5805e4f7e16a7a",
+ "tool_schemas": {
+  "check_state": [
+   {
+    "function": {
+     "description": "Go to a named place; returns a new photo.",
+     "name": "navigate_to",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "place": {
+        "enum": [
+         "hall",
+         "ward",
+         "office",
+         "reception",
+         "storage"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "place"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Turn on the spot and take four numbered photos.",
+     "name": "look_around",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {},
+      "required": [],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Give the final answer and end the run. photo = number of the photo (in the current message) that shows the evidence. note = free text, never scored.",
+     "name": "report",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "answer": {
+        "enum": [
+         "yes",
+         "no"
+        ],
+        "type": "string"
+       },
+       "note": {
+        "type": "string"
+       },
+       "photo": {
+        "minimum": 1,
+        "type": "integer"
+       }
+      },
+      "required": [
+       "answer",
+       "photo",
+       "note"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ],
+  "conditional": [
+   {
+    "function": {
+     "description": "Go to a named place; returns a new photo.",
+     "name": "navigate_to",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "place": {
+        "enum": [
+         "hall",
+         "ward",
+         "office",
+         "reception",
+         "storage"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "place"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Turn on the spot and take four numbered photos.",
+     "name": "look_around",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {},
+      "required": [],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Give the final answer and end the run. photo = number of the photo (in the current message) that shows the evidence. note = free text, never scored.",
+     "name": "report",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "answer": {
+        "description": "room name",
+        "enum": [
+         "hall",
+         "office",
+         "reception",
+         "storage",
+         "ward"
+        ],
+        "type": "string"
+       },
+       "note": {
+        "type": "string"
+       },
+       "photo": {
+        "minimum": 1,
+        "type": "integer"
+       }
+      },
+      "required": [
+       "answer",
+       "photo",
+       "note"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ],
+  "count": [
+   {
+    "function": {
+     "description": "Go to a named place; returns a new photo.",
+     "name": "navigate_to",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "place": {
+        "enum": [
+         "hall",
+         "ward",
+         "office",
+         "reception",
+         "storage"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "place"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Turn on the spot and take four numbered photos.",
+     "name": "look_around",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {},
+      "required": [],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Give the final answer and end the run. photo = number of the photo (in the current message) that shows the evidence. note = free text, never scored.",
+     "name": "report",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "answer": {
+        "description": "a whole number, digits only",
+        "pattern": "^(0|[1-9][0-9]*)$",
+        "type": "string"
+       },
+       "note": {
+        "type": "string"
+       },
+       "photo": {
+        "minimum": 1,
+        "type": "integer"
+       }
+      },
+      "required": [
+       "answer",
+       "photo",
+       "note"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ],
+  "find": [
+   {
+    "function": {
+     "description": "Go to a named place; returns a new photo.",
+     "name": "navigate_to",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "place": {
+        "enum": [
+         "hall",
+         "ward",
+         "office",
+         "reception",
+         "storage"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "place"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Turn on the spot and take four numbered photos.",
+     "name": "look_around",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {},
+      "required": [],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Give the final answer and end the run. photo = number of the photo (in the current message) that shows the evidence. note = free text, never scored.",
+     "name": "report",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "answer": {
+        "description": "room name",
+        "enum": [
+         "hall",
+         "office",
+         "reception",
+         "storage",
+         "ward"
+        ],
+        "type": "string"
+       },
+       "note": {
+        "type": "string"
+       },
+       "photo": {
+        "minimum": 1,
+        "type": "integer"
+       }
+      },
+      "required": [
+       "answer",
+       "photo",
+       "note"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "vlm": {
+  "MAX_TOKENS": {
+   "False": 1024,
+   "True": 8192
+  },
+  "SAMPLING": {
+   "False": {
+    "presence_penalty": 1.5,
+    "temperature": 0.7,
+    "top_k": 20,
+    "top_p": 0.8
+   },
+   "True": {
+    "presence_penalty": 0.0,
+    "temperature": 1.0,
+    "top_k": 20,
+    "top_p": 0.95
+   }
+  }
+ }
+}

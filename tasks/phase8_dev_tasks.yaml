@@ -1,0 +1,75 @@
+# Task 011 Phase 8 DEV task prompts (synthetic generator output, seeds 1001..; not test prompts).
+- id: p8-9-01-find
+  kind: find
+  prompt: In which room are the patient beds?
+  target:
+    class: bed
+- id: p8-9-01-state
+  kind: check_state
+  prompt: Are the cabinet doors closed?
+  target:
+    object: cabinet_blue_1
+    state: closed
+- id: p8-9-01-count
+  kind: count
+  prompt: How many beds are there in the ward?
+  target:
+    class: bed
+    room: ward
+- id: p8-9-01-cond
+  kind: conditional
+  prompt: Check reception for the cabinet; if it isn't there, try storage.
+  target:
+    object: cabinet_blue_1
+    if_not_in: reception
+    else_room: storage
+- id: p8-9-03-find
+  kind: find
+  prompt: Which room are the orange seats in?
+  target:
+    class: chair
+    colour: orange
+- id: p8-9-03-count
+  kind: count
+  prompt: Tell me how many seats reception has.
+  target:
+    class: chair
+    room: reception
+- id: p8-9-05-find
+  kind: find
+  prompt: Tell me which room has the red tool box.
+  target:
+    object: toolbox_red_1
+- id: p8-9-05-cond
+  kind: conditional
+  prompt: Check storage for the toolbox; if it isn't there, try the office.
+  target:
+    object: toolbox_red_1
+    if_not_in: storage
+    else_room: office
+- id: p8-9-06-state
+  kind: check_state
+  prompt: Has the blue cabinet been left open?
+  target:
+    object: cabinet_blue_1
+    state: open
+- id: p8-9-07-count
+  kind: count
+  prompt: How many chairs are there in reception?
+  target:
+    class: chair
+    room: reception
+- id: p8-9-10-state
+  kind: check_state
+  prompt: Is the blue cabinet standing open?
+  target:
+    object: cabinet_blue_1
+    state: open
+- id: p8-9-10-cond
+  kind: conditional
+  prompt: Look for the orange seats in storage, and if they aren't there, go to reception.
+  target:
+    class: chair
+    colour: orange
+    if_not_in: storage
+    else_room: reception

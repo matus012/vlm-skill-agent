@@ -1,0 +1,17 @@
+# Phase 6 task prompts (task 009, blocked doorways), the ones tasks/phase6_*.yaml need that tasks/dev.yaml and
+# tasks/phase5_tasks.yaml lack. Same entry format as dev.yaml. A run list's task_id resolves in tasks/dev.yaml, then
+# tasks/phase5_tasks.yaml, then here (agent/tasks.all_tasks; an id in two files is an error). Targets only from G9
+# classes. No truth answers here: they are derived by code from seeded.truth_for(layout_seed, world)
+# (agent/truth.run_truth). Meant for seeded layouts; the blocked room is the world's (INTERFACES section 11), never
+# named here, and the answer is never in it.
+
+# Find with two candidate rooms (task 009 Design: "The toolbox is in storage or the office."); both orders, so either
+# room can be the blocked first choice.
+- {id: find-toolbox-storage-reception, kind: find, prompt: "The red toolbox is in storage or reception. Find it.",
+   target: {object: toolbox_red_1}}
+- {id: find-toolbox-reception-storage, kind: find, prompt: "The red toolbox is in reception or storage. Find it.",
+   target: {object: toolbox_red_1}}
+
+# Conditional with storage first (the reverse, cond-toolbox-reception-storage, is in phase5_tasks.yaml).
+- {id: cond-toolbox-storage-reception, kind: conditional, prompt: "If the toolbox isn't in storage, check reception.",
+   target: {object: toolbox_red_1, if_not_in: storage, else_room: reception}}

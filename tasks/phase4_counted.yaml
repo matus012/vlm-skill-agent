@@ -1,0 +1,61 @@
+# Task 007 counted set: 40 runs = 10 per type (check_state, count, conditional, find), each used once, written and
+# committed before any 007 VLM result existed. Entry {run_id, task_id, start_place, seed} as 005, plus `world:
+# cabinet_open` on open-variant entries (absent = closed). True answers are never written here: agent/truth.py
+# derives them from the entry's world truth.json. Checked by tests/test_phase4_lists.py; gates: probes/phase4_gates.py.
+# Selection rule (2026-11-05, by rule, no VLM output seen):
+# - "Answer room" per type: check_state = the cabinet's room (storage); count = the counted room; conditional = the
+#   room the true answer names; find = the target's room. At most 2 of 10 runs per type start there.
+# - check_state: "Is the storage cabinet open?" 6 runs, "... closed?" 4; worlds closed 5 / cabinet_open 5; true
+#   answers yes 5 / no 5 (open? x closed = no 3, open? x open = yes 3, closed? x closed = yes 2, closed? x open = no 2).
+#   Starts hall 3, ward 2, office 2, reception 2, storage 1.
+# - count: chairs-in-reception 5, beds-in-ward 5; each prompt starts once from the hall and once from each room
+#   (answer-room starts: 1 + 1).
+# - conditional: both branches 5 / 5. First room right (target in if_not_in): cond-toolbox 3 (-> storage),
+#   cond-chairs-reception 2 (-> reception). First room wrong: cond-toolbox-office 2 (-> storage), cond-beds-ward 3
+#   (-> ward). Every prompt once from the hall, the rest from the room the prompt names first (office) or another
+#   non-answer room; one answer-room start (chairs from reception).
+# - find: 005's four Find prompts (regression guard), 005's split (toolbox 2, cabinet 2, beds 3, chairs 3); each once
+#   from the hall, beds and chairs once from their own room (2 answer-room starts), the rest from other rooms.
+# - Order: type blocks in the order above (the cross-job split assigns entries in list order, hpc/PERUN_SIM.md s5).
+# - seed = random.Random("115-007-counted").sample(range(1, 2**31 - 1), 40), in run order; disjoint from every seed in
+#   tasks/phase3_*.yaml and tasks/phase4_dev.yaml. Dev blocks use tasks/phase4_dev.yaml and never these run ids.
+- {run_id: p4c01, task_id: state-cabinet-open,    start_place: hall,      seed: 1248619125}
+- {run_id: p4c02, task_id: state-cabinet-open,    start_place: ward,      seed: 2067718762}
+- {run_id: p4c03, task_id: state-cabinet-open,    start_place: reception, seed: 1374760548}
+- {run_id: p4c04, task_id: state-cabinet-open,    start_place: hall,      seed:  947668522, world: cabinet_open}
+- {run_id: p4c05, task_id: state-cabinet-open,    start_place: office,    seed:   39460091, world: cabinet_open}
+- {run_id: p4c06, task_id: state-cabinet-open,    start_place: storage,   seed:  693838694, world: cabinet_open}
+- {run_id: p4c07, task_id: state-cabinet-closed,  start_place: ward,      seed: 1344742749}
+- {run_id: p4c08, task_id: state-cabinet-closed,  start_place: office,    seed:  118717285}
+- {run_id: p4c09, task_id: state-cabinet-closed,  start_place: hall,      seed: 1930109273, world: cabinet_open}
+- {run_id: p4c10, task_id: state-cabinet-closed,  start_place: reception, seed: 1647750309, world: cabinet_open}
+- {run_id: p4c11, task_id: count-chairs,          start_place: hall,      seed: 1554458194}
+- {run_id: p4c12, task_id: count-chairs,          start_place: reception, seed: 1548308596}
+- {run_id: p4c13, task_id: count-chairs,          start_place: ward,      seed:  116799188}
+- {run_id: p4c14, task_id: count-chairs,          start_place: storage,   seed: 1958029270}
+- {run_id: p4c15, task_id: count-chairs,          start_place: office,    seed: 1185743919}
+- {run_id: p4c16, task_id: count-beds,            start_place: hall,      seed: 1840840534}
+- {run_id: p4c17, task_id: count-beds,            start_place: ward,      seed: 1008900901}
+- {run_id: p4c18, task_id: count-beds,            start_place: office,    seed:  215896023}
+- {run_id: p4c19, task_id: count-beds,            start_place: reception, seed: 2058171180}
+- {run_id: p4c20, task_id: count-beds,            start_place: storage,   seed:  444190424}
+- {run_id: p4c21, task_id: cond-toolbox,          start_place: hall,      seed: 2048840243}
+- {run_id: p4c22, task_id: cond-toolbox,          start_place: office,    seed: 1956318829}
+- {run_id: p4c23, task_id: cond-toolbox,          start_place: ward,      seed:  634371344}
+- {run_id: p4c24, task_id: cond-chairs-reception, start_place: hall,      seed: 2137508743}
+- {run_id: p4c25, task_id: cond-chairs-reception, start_place: reception, seed: 1539757518}
+- {run_id: p4c26, task_id: cond-toolbox-office,   start_place: hall,      seed: 1548794214}
+- {run_id: p4c27, task_id: cond-toolbox-office,   start_place: office,    seed:  572893722}
+- {run_id: p4c28, task_id: cond-beds-ward,        start_place: hall,      seed:  259692402}
+- {run_id: p4c29, task_id: cond-beds-ward,        start_place: reception, seed:  560925056}
+- {run_id: p4c30, task_id: cond-beds-ward,        start_place: storage,   seed:  750969872}
+- {run_id: p4c31, task_id: find-toolbox,          start_place: hall,      seed: 1297796204}
+- {run_id: p4c32, task_id: find-toolbox,          start_place: ward,      seed:  857148634}
+- {run_id: p4c33, task_id: find-cabinet,          start_place: hall,      seed: 1763471919}
+- {run_id: p4c34, task_id: find-cabinet,          start_place: reception, seed: 1532534292}
+- {run_id: p4c35, task_id: find-beds-where,       start_place: hall,      seed: 1627217387}
+- {run_id: p4c36, task_id: find-beds-where,       start_place: ward,      seed: 1580017729}
+- {run_id: p4c37, task_id: find-beds-where,       start_place: office,    seed:  433258657}
+- {run_id: p4c38, task_id: find-chairs-plain,     start_place: hall,      seed:  929402359}
+- {run_id: p4c39, task_id: find-chairs-plain,     start_place: reception, seed:  493631137}
+- {run_id: p4c40, task_id: find-chairs-plain,     start_place: storage,   seed:  675300245}

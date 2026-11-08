@@ -1,0 +1,29 @@
+Bootstrap: localimage
+From: <PROJECT_DIR>/images/sim.sif
+# 115 G1 humanoid image (task 012, Phase 10): sim.sif (ROS 2 Jazzy + Gazebo + Nav2 + /opt/venv) plus the side-H G1 stack:
+# /opt/venv-g1 = MuJoCo 3.17.0 + leapp 0.5.2 + onnxruntime + CPU torch (hpc/g1_requirements.txt, frozen from the local machine's
+# .venv-g1), and the pinned clones at /opt/g1ext: WBC-AGILE f5c388eb (Velocity-G1-v0 LEAPP bundle, LFS pulled) and
+# unitree_mujoco 1eb6642e (unitree_robots/g1 only). Never AGILE's pyproject (Isaac Sim). Rendering: MuJoCo EGL via
+# `apptainer exec --nv` (glvnd vendor file from sim.def). Build: hpc/build_g1.sh on the login node.
+
+%files
+    g1_requirements.txt /opt/g1/g1_requirements.txt
+    ext/agile /opt/g1ext/agile
+    ext/unitree_mujoco/unitree_robots/g1 /opt/g1ext/unitree_mujoco/unitree_robots/g1
+
+%environment
+    export G1_EXT=/opt/g1ext
+    export MUJOCO_GL=egl
+
+%post
+    set -e
+    uv venv --system-site-packages --python /usr/bin/python3.12 /opt/venv-g1
+    grep -v '^#' /opt/g1/g1_requirements.txt > /tmp/g1req.txt
+    VIRTUAL_ENV=/opt/venv-g1 uv pip install --index-strategy unsafe-best-match \
+        --extra-index-url https://download.pytorch.org/whl/cpu -r /tmp/g1req.txt
+    chmod -R a+rX /opt/venv-g1 /opt/g1ext /opt/g1
+    /opt/venv-g1/bin/python -c "import torch, mujoco, leapp, onnxruntime; assert torch.version.cuda is None; print('g1 ok', torch.__version__, mujoco.__version__)"
+
+%help
+    G1 python: /opt/venv-g1/bin/python with PYTHONPATH=<repo>:/opt/g1ext/agile (humanoid/run_g1.sh). Project python
+    for the runner + adapter stays /opt/venv/bin/python (numpy 1.x), as in sim.sif.

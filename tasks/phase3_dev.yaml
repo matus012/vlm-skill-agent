@@ -1,0 +1,12 @@
+# Task 005 dev set: 8 runs for dev blocks (prompt / packet debugging). Never counted.
+# Chosen by rule (2026-11-04, worker P3): each of the 4 Find prompts twice, starts complementary to the counted set
+# (rooms the counted set uses least first: reception, storage, office), two hall starts (cabinet, chairs).
+# seed = random.Random("115-005-dev").sample(range(1, 2**31 - 1), 8), in run order; disjoint from the counted seeds.
+- {run_id: d01, task_id: find-toolbox,      start_place: reception, seed: 1288714485}
+- {run_id: d02, task_id: find-toolbox,      start_place: storage,   seed: 1222086181}
+- {run_id: d03, task_id: find-cabinet,      start_place: ward,      seed: 103660593}
+- {run_id: d04, task_id: find-cabinet,      start_place: hall,      seed: 875751284}
+- {run_id: d05, task_id: find-beds-where,   start_place: reception, seed: 1392503791}
+- {run_id: d06, task_id: find-beds-where,   start_place: storage,   seed: 1473437992}
+- {run_id: d07, task_id: find-chairs-plain, start_place: office,    seed: 162299544}
+- {run_id: d08, task_id: find-chairs-plain, start_place: hall,      seed: 1042551903}

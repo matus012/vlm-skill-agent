@@ -1,0 +1,56 @@
+# --- model weights and checkpoints -------------------------------------------
+# Never committed. A weight blob in history costs a full history rewrite —
+# 103_multicam_gp paid for that on 2026-08-04 (`yolo11x.pt`). Weights are
+# fetched at runtime and cached outside the repo (TORCH_HOME / HF_HOME).
+*.pt
+*.pth
+*.onnx
+*.safetensors
+*.ckpt
+weights/
+checkpoints/
+
+# --- data --------------------------------------------------------------------
+# Extend per project. Imagery, frames, crops and video never enter git.
+data/
+*.zip
+*.tar
+*.tar.gz
+*.mp4
+*.avi
+*.png
+*.jpg
+
+# --- environment --------------------------------------------------------------
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# --- derived -------------------------------------------------------------------
+.cache/
+*.npy
+*.npz
+
+# --- project additions --------------------------------------------------------------
+# colcon output lives in $BUILD_DIR/ros_ws/ (default ~/vlm_skill_agent_build), not in the repo; these catch a local build in-tree
+build/
+install/
+log/
+# containers, model weights, recordings
+*.sif
+*.gguf
+*.bin
+/models/
+*.mov
+*.webm
+*.gif
+*.bag
+*.mcap
+rosbag2_*/
+# overlay meshes: copied from the installed apt package by sim/build.sh (29 MB, identical to upstream)
+ros_ws/src/turtlebot4_description/meshes/
+MUJOCO_LOG.TXT
+
+# the demo GIF is shipped
+!media/demo.gif

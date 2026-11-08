@@ -1,0 +1,454 @@
+{
+ "sources": [
+  "runs/2026-11-04/002-counted/photos",
+  "runs/2026-11-04/003-step0/recount/photos"
+ ],
+ "rule": [
+  "",
+  "For each dev task: the room that holds the proof (the object's room / the counted room), its look_around photos",
+  "<photos_dir>/<room>/<k>_seg.png (cropped seg, heading k = place yaw + k*90 deg), and per k the largest single-proof-",
+  "label pixel count. Photo = k + 1 of the k with the most px (must be >= the scorer's 1000 px). Several photos_dirs"
+ ],
+ "tasks": {
+  "find-toolbox": {
+   "room": "storage",
+   "proof_labels": [
+    13
+   ],
+   "photo": 3,
+   "truth_answer": "storage",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      0,
+      9100,
+      0
+     ],
+     "photo": 3
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      0,
+      8623,
+      0
+     ],
+     "photo": 3
+    }
+   }
+  },
+  "find-cabinet": {
+   "room": "storage",
+   "proof_labels": [
+    14
+   ],
+   "photo": 4,
+   "truth_answer": "storage",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      40703
+     ],
+     "photo": 4
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      41580
+     ],
+     "photo": 4
+    }
+   }
+  },
+  "find-beds": {
+   "room": "ward",
+   "proof_labels": [
+    1,
+    2,
+    3
+   ],
+   "photo": 2,
+   "truth_answer": "ward",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      13720,
+      0,
+      0
+     ],
+     "photo": 2
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      13655,
+      0,
+      0
+     ],
+     "photo": 2
+    }
+   }
+  },
+  "find-chairs": {
+   "room": "reception",
+   "proof_labels": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "photo": 4,
+   "truth_answer": "reception",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      5104
+     ],
+     "photo": 4
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      4995
+     ],
+     "photo": 4
+    }
+   }
+  },
+  "find-beds-where": {
+   "room": "ward",
+   "proof_labels": [
+    1,
+    2,
+    3
+   ],
+   "photo": 2,
+   "truth_answer": "ward",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      13720,
+      0,
+      0
+     ],
+     "photo": 2
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      13655,
+      0,
+      0
+     ],
+     "photo": 2
+    }
+   }
+  },
+  "find-chairs-plain": {
+   "room": "reception",
+   "proof_labels": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "photo": 4,
+   "truth_answer": "reception",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      5104
+     ],
+     "photo": 4
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      4995
+     ],
+     "photo": 4
+    }
+   }
+  },
+  "state-cabinet-open": {
+   "room": "storage",
+   "proof_labels": [
+    14
+   ],
+   "photo": 4,
+   "truth_answer": "no",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      40703
+     ],
+     "photo": 4
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      41580
+     ],
+     "photo": 4
+    }
+   }
+  },
+  "state-cabinet-closed": {
+   "room": "storage",
+   "proof_labels": [
+    14
+   ],
+   "photo": 4,
+   "truth_answer": "yes",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      40703
+     ],
+     "photo": 4
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      41580
+     ],
+     "photo": 4
+    }
+   }
+  },
+  "count-chairs": {
+   "room": "reception",
+   "proof_labels": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "photo": 4,
+   "truth_answer": "4",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      5104
+     ],
+     "photo": 4
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      4995
+     ],
+     "photo": 4
+    }
+   }
+  },
+  "count-beds": {
+   "room": "ward",
+   "proof_labels": [
+    1,
+    2,
+    3
+   ],
+   "photo": 2,
+   "truth_answer": "3",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      13720,
+      0,
+      0
+     ],
+     "photo": 2
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      13655,
+      0,
+      0
+     ],
+     "photo": 2
+    }
+   }
+  },
+  "cond-toolbox": {
+   "room": "storage",
+   "proof_labels": [
+    13
+   ],
+   "photo": 3,
+   "truth_answer": "storage",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      0,
+      9100,
+      0
+     ],
+     "photo": 3
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      0,
+      8623,
+      0
+     ],
+     "photo": 3
+    }
+   }
+  },
+  "cond-toolbox-office": {
+   "room": "storage",
+   "proof_labels": [
+    13
+   ],
+   "photo": 3,
+   "truth_answer": "storage",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      0,
+      9100,
+      0
+     ],
+     "photo": 3
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      0,
+      8623,
+      0
+     ],
+     "photo": 3
+    }
+   }
+  },
+  "cond-cabinet-office": {
+   "room": "storage",
+   "proof_labels": [
+    14
+   ],
+   "photo": 4,
+   "truth_answer": "storage",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      40703
+     ],
+     "photo": 4
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      41580
+     ],
+     "photo": 4
+    }
+   }
+  },
+  "cond-beds-ward": {
+   "room": "ward",
+   "proof_labels": [
+    1,
+    2,
+    3
+   ],
+   "photo": 2,
+   "truth_answer": "ward",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      13720,
+      0,
+      0
+     ],
+     "photo": 2
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      13655,
+      0,
+      0
+     ],
+     "photo": 2
+    }
+   }
+  },
+  "cond-chairs-reception": {
+   "room": "reception",
+   "proof_labels": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "photo": 4,
+   "truth_answer": "reception",
+   "by_source": {
+    "runs/2026-11-04/002-counted/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      5104
+     ],
+     "photo": 4
+    },
+    "runs/2026-11-04/003-step0/recount/photos": {
+     "px_by_k": [
+      0,
+      0,
+      0,
+      4995
+     ],
+     "photo": 4
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!-- Project 115, task 002: closed labelled test room for the camera instrument (segmentation ids, self-view crop,
+     photo script). Not the clinic. Labels per sim/INTERFACES.md section 1: boxes 1..4, walls 240, floor 241,
+     ceiling 242. The robot (spawned at the origin, yaw 0) and its dock are not labelled. -->
+<sdf version="1.9">
+  <world name="test_seg">
+    <physics type="ode"><max_step_size>0.003</max_step_size><real_time_factor>1.0</real_time_factor></physics>
+    <plugin name="gz::sim::systems::Physics" filename="gz-sim-physics-system"/>
+    <plugin name="gz::sim::systems::UserCommands" filename="gz-sim-user-commands-system"/>
+    <plugin name="gz::sim::systems::SceneBroadcaster" filename="gz-sim-scene-broadcaster-system"/>
+    <plugin name="gz::sim::systems::Contact" filename="gz-sim-contact-system"/>
+    <!-- No world-level Sensors system: the robot model loads one (create3.urdf.xacro). A second one here would create
+         every sensor twice; the launch selects ogre2 for the server (segmentation exists only in ogre2). -->
+    <scene><ambient>0.6 0.6 0.6 1</ambient><background>0.3 0.7 0.9 1</background><shadows>false</shadows><grid>false</grid></scene>
+
+    <light type="point" name="lamp_0">
+      <pose>1.5 1.5 2.3 0 0 0</pose><cast_shadows>false</cast_shadows>
+      <diffuse>0.8 0.8 0.8 1</diffuse><specular>0.1 0.1 0.1 1</specular>
+      <attenuation><range>10</range><constant>0.5</constant><linear>0.05</linear><quadratic>0.01</quadratic></attenuation>
+    </light>
+    <light type="point" name="lamp_1">
+      <pose>-1.5 1.5 2.3 0 0 0</pose><cast_shadows>false</cast_shadows>
+      <diffuse>0.8 0.8 0.8 1</diffuse><specular>0.1 0.1 0.1 1</specular>
+      <attenuation><range>10</range><constant>0.5</constant><linear>0.05</linear><quadratic>0.01</quadratic></attenuation>
+    </light>
+    <light type="point" name="lamp_2">
+      <pose>-1.5 -1.5 2.3 0 0 0</pose><cast_shadows>false</cast_shadows>
+      <diffuse>0.8 0.8 0.8 1</diffuse><specular>0.1 0.1 0.1 1</specular>
+      <attenuation><range>10</range><constant>0.5</constant><linear>0.05</linear><quadratic>0.01</quadratic></attenuation>
+    </light>
+    <light type="point" name="lamp_3">
+      <pose>1.5 -1.5 2.3 0 0 0</pose><cast_shadows>false</cast_shadows>
+      <diffuse>0.8 0.8 0.8 1</diffuse><specular>0.1 0.1 0.1 1</specular>
+      <attenuation><range>10</range><constant>0.5</constant><linear>0.05</linear><quadratic>0.01</quadratic></attenuation>
+    </light>
+
+    <model name="floor">
+      <static>true</static>
+      <pose>0 0 -0.05 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>6.2 6.2 0.1</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>6.2 6.2 0.1</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material></visual>
+      </link>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>241</label></plugin>
+    </model>
+    <model name="ceiling">
+      <static>true</static>
+      <pose>0 0 2.55 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>6.2 6.2 0.1</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>6.2 6.2 0.1</size></box></geometry>
+          <material><ambient>0.9 0.9 0.9 1</ambient><diffuse>0.9 0.9 0.9 1</diffuse></material></visual>
+      </link>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>242</label></plugin>
+    </model>
+    <model name="wall_n">
+      <static>true</static>
+      <pose>0 3.05 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>6.2 0.1 2.5</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>6.2 0.1 2.5</size></box></geometry>
+          <material><ambient>0.8 0.8 0.7 1</ambient><diffuse>0.8 0.8 0.7 1</diffuse></material></visual>
+      </link>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>240</label></plugin>
+    </model>
+    <model name="wall_s">
+      <static>true</static>
+      <pose>0 -3.05 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>6.2 0.1 2.5</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>6.2 0.1 2.5</size></box></geometry>
+          <material><ambient>0.8 0.8 0.7 1</ambient><diffuse>0.8 0.8 0.7 1</diffuse></material></visual>
+      </link>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>240</label></plugin>
+    </model>
+    <model name="wall_e">
+      <static>true</static>
+      <pose>3.05 0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.1 6.0 2.5</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.1 6.0 2.5</size></box></geometry>
+          <material><ambient>0.7 0.8 0.8 1</ambient><diffuse>0.7 0.8 0.8 1</diffuse></material></visual>
+      </link>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>240</label></plugin>
+    </model>
+    <model name="wall_w">
+      <static>true</static>
+      <pose>-3.05 0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.1 6.0 2.5</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.1 6.0 2.5</size></box></geometry>
+          <material><ambient>0.7 0.8 0.8 1</ambient><diffuse>0.7 0.8 0.8 1</diffuse></material></visual>
+      </link>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>240</label></plugin>
+    </model>
+    <model name="box_red_1">
+      <static>true</static>
+      <pose>2.0 1.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.6 0.6 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.6 0.6 1.0</size></box></geometry>
+          <material><ambient>0.9 0.1 0.1 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse></material></visual>
+      </link>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>1</label></plugin>
+    </model>
+    <model name="box_green_2">
+      <static>true</static>
+      <pose>-2.0 1.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.6 0.6 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.6 0.6 1.0</size></box></geometry>
+          <material><ambient>0.1 0.8 0.1 1</ambient><diffuse>0.1 0.8 0.1 1</diffuse></material></visual>
+      </link>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>2</label></plugin>
+    </model>
+    <model name="box_blue_3">
+      <static>true</static>
+      <pose>-2.0 -1.5 0.75 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.6 0.6 1.5</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.6 0.6 1.5</size></box></geometry>
+          <material><ambient>0.1 0.2 0.9 1</ambient><diffuse>0.1 0.2 0.9 1</diffuse></material></visual>
+      </link>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>3</label></plugin>
+    </model>
+    <model name="box_yellow_4">
+      <static>true</static>
+      <pose>1.5 -2.0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.8 0.5 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.8 0.5 1.0</size></box></geometry>
+          <material><ambient>0.9 0.8 0.1 1</ambient><diffuse>0.9 0.8 0.1 1</diffuse></material></visual>
+      </link>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label"><label>4</label></plugin>
+    </model>
+  </world>
+</sdf>

@@ -1,0 +1,523 @@
+{
+ "blocker": {
+  "class": "blocker",
+  "colour": "yellow",
+  "id": "blocker_ward",
+  "label": 220,
+  "pose": [
+   -1.2,
+   1.4,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "room": "ward",
+  "size": [
+   1.44,
+   0.3,
+   1.2
+  ]
+ },
+ "layout_sha256": "17db339431527bed061630b80632effadf701febf1742923120f4275cec6099a",
+ "objects": [
+  {
+   "class": "bed",
+   "colour": "blue",
+   "countable": true,
+   "id": "bed_blue_1",
+   "label": 1,
+   "model_name": "bed_blue_1",
+   "pose": [
+    -4.0,
+    5.46,
+    0.0,
+    0.0,
+    0.0,
+    -1.5708
+   ],
+   "room": "ward",
+   "state": null
+  },
+  {
+   "class": "bed",
+   "colour": "blue",
+   "countable": true,
+   "id": "bed_blue_2",
+   "label": 2,
+   "model_name": "bed_blue_2",
+   "pose": [
+    -2.5,
+    5.46,
+    0.0,
+    0.0,
+    0.0,
+    -1.5708
+   ],
+   "room": "ward",
+   "state": null
+  },
+  {
+   "class": "bed",
+   "colour": "blue",
+   "countable": true,
+   "id": "bed_blue_3",
+   "label": 3,
+   "model_name": "bed_blue_3",
+   "pose": [
+    -1.0,
+    5.46,
+    0.0,
+    0.0,
+    0.0,
+    -1.5708
+   ],
+   "room": "ward",
+   "state": null
+  },
+  {
+   "class": "trolley",
+   "colour": "white",
+   "countable": false,
+   "id": "trolley_white_1",
+   "label": 4,
+   "model_name": "trolley_white_1",
+   "pose": [
+    -4.6,
+    3.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "room": "ward",
+   "state": null
+  },
+  {
+   "class": "privacy_screen",
+   "colour": "green",
+   "countable": false,
+   "id": "screen_green_1",
+   "label": 5,
+   "model_name": "screen_green_1",
+   "pose": [
+    -0.45,
+    3.4,
+    0.0,
+    0.0,
+    0.0,
+    3.1416
+   ],
+   "room": "ward",
+   "state": null
+  },
+  {
+   "class": "chair",
+   "colour": "orange",
+   "countable": true,
+   "id": "chair_orange_1",
+   "label": 6,
+   "model_name": "chair_orange_1",
+   "pose": [
+    -4.075,
+    -6.15,
+    0.0,
+    0.0,
+    0.0,
+    1.5708
+   ],
+   "room": "reception",
+   "state": null
+  },
+  {
+   "class": "chair",
+   "colour": "orange",
+   "countable": true,
+   "id": "chair_orange_2",
+   "label": 7,
+   "model_name": "chair_orange_2",
+   "pose": [
+    -3.025,
+    -6.15,
+    0.0,
+    0.0,
+    0.0,
+    1.5708
+   ],
+   "room": "reception",
+   "state": null
+  },
+  {
+   "class": "chair",
+   "colour": "orange",
+   "countable": true,
+   "id": "chair_orange_3",
+   "label": 8,
+   "model_name": "chair_orange_3",
+   "pose": [
+    -1.975,
+    -6.15,
+    0.0,
+    0.0,
+    0.0,
+    1.5708
+   ],
+   "room": "reception",
+   "state": null
+  },
+  {
+   "class": "chair",
+   "colour": "orange",
+   "countable": true,
+   "id": "chair_orange_4",
+   "label": 9,
+   "model_name": "chair_orange_4",
+   "pose": [
+    -0.925,
+    -6.15,
+    0.0,
+    0.0,
+    0.0,
+    1.5708
+   ],
+   "room": "reception",
+   "state": null
+  },
+  {
+   "class": "reception_counter",
+   "colour": "wood",
+   "countable": false,
+   "id": "counter_wood_1",
+   "label": 10,
+   "model_name": "counter_wood_1",
+   "pose": [
+    -4.55,
+    -4.3,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "room": "reception",
+   "state": null
+  },
+  {
+   "class": "plant",
+   "colour": "green",
+   "countable": false,
+   "id": "plant_green_1",
+   "label": 11,
+   "model_name": "plant_green_1",
+   "pose": [
+    -0.5,
+    -2.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "room": "reception",
+   "state": null
+  },
+  {
+   "class": "water_cooler",
+   "colour": "blue",
+   "countable": false,
+   "id": "cooler_blue_1",
+   "label": 12,
+   "model_name": "cooler_blue_1",
+   "pose": [
+    -0.3,
+    -4.2,
+    0.0,
+    0.0,
+    0.0,
+    3.1416
+   ],
+   "room": "reception",
+   "state": null
+  },
+  {
+   "class": "toolbox",
+   "colour": "red",
+   "countable": false,
+   "id": "toolbox_red_1",
+   "label": 13,
+   "model_name": "toolbox_red_1",
+   "pose": [
+    0.4,
+    -4.1,
+    0.0,
+    0.0,
+    0.0,
+    1.5708
+   ],
+   "room": "storage",
+   "state": null
+  },
+  {
+   "class": "cabinet",
+   "colour": "blue",
+   "countable": false,
+   "id": "cabinet_blue_1",
+   "label": 14,
+   "model_name": "cabinet_blue_1",
+   "pose": [
+    2.5,
+    -6.19,
+    0.0,
+    0.0,
+    0.0,
+    1.5708
+   ],
+   "room": "storage",
+   "state": "closed"
+  },
+  {
+   "class": "shelf_rack",
+   "colour": "metal",
+   "countable": false,
+   "id": "rack_metal_1",
+   "label": 15,
+   "model_name": "rack_metal_1",
+   "pose": [
+    4.65,
+    -4.3,
+    0.0,
+    0.0,
+    0.0,
+    3.1416
+   ],
+   "room": "storage",
+   "state": null
+  },
+  {
+   "class": "boxes_stack",
+   "colour": "cardboard",
+   "countable": false,
+   "id": "boxes_brown_1",
+   "label": 16,
+   "model_name": "boxes_brown_1",
+   "pose": [
+    0.8,
+    -2.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "room": "storage",
+   "state": null
+  },
+  {
+   "class": "desk",
+   "colour": "wood",
+   "countable": false,
+   "id": "desk_wood_1",
+   "label": 17,
+   "model_name": "desk_wood_1",
+   "pose": [
+    2.5,
+    6.1,
+    0.0,
+    0.0,
+    0.0,
+    -1.5708
+   ],
+   "room": "office",
+   "state": null
+  },
+  {
+   "class": "bookshelf",
+   "colour": "wood",
+   "countable": false,
+   "id": "bookshelf_wood_1",
+   "label": 18,
+   "model_name": "bookshelf_wood_1",
+   "pose": [
+    4.77,
+    4.0,
+    0.0,
+    0.0,
+    0.0,
+    3.1416
+   ],
+   "room": "office",
+   "state": null
+  },
+  {
+   "class": "sofa",
+   "colour": "teal",
+   "countable": false,
+   "id": "sofa_teal_1",
+   "label": 19,
+   "model_name": "sofa_teal_1",
+   "pose": [
+    0.5,
+    4.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "room": "office",
+   "state": null
+  },
+  {
+   "class": "plant",
+   "colour": "green",
+   "countable": false,
+   "id": "plant_green_2",
+   "label": 20,
+   "model_name": "plant_green_2",
+   "pose": [
+    4.5,
+    6.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "room": "office",
+   "state": null
+  }
+ ],
+ "rooms": {
+  "hall": {
+   "polygon": [
+    [
+     -5.0,
+     -1.5
+    ],
+    [
+     5.0,
+     -1.5
+    ],
+    [
+     5.0,
+     1.5
+    ],
+    [
+     -5.0,
+     1.5
+    ]
+   ]
+  },
+  "office": {
+   "doorway": {
+    "center": [
+     1.2,
+     1.5
+    ],
+    "width": 1.4
+   },
+   "polygon": [
+    [
+     0.0,
+     1.5
+    ],
+    [
+     5.0,
+     1.5
+    ],
+    [
+     5.0,
+     6.5
+    ],
+    [
+     0.0,
+     6.5
+    ]
+   ]
+  },
+  "reception": {
+   "doorway": {
+    "center": [
+     -3.6,
+     -1.5
+    ],
+    "width": 1.4
+   },
+   "polygon": [
+    [
+     -5.0,
+     -6.5
+    ],
+    [
+     0.0,
+     -6.5
+    ],
+    [
+     0.0,
+     -1.5
+    ],
+    [
+     -5.0,
+     -1.5
+    ]
+   ]
+  },
+  "storage": {
+   "doorway": {
+    "center": [
+     3.6,
+     -1.5
+    ],
+    "width": 1.4
+   },
+   "polygon": [
+    [
+     0.0,
+     -6.5
+    ],
+    [
+     5.0,
+     -6.5
+    ],
+    [
+     5.0,
+     -1.5
+    ],
+    [
+     0.0,
+     -1.5
+    ]
+   ]
+  },
+  "ward": {
+   "doorway": {
+    "center": [
+     -1.2,
+     1.5
+    ],
+    "width": 1.4
+   },
+   "polygon": [
+    [
+     -5.0,
+     1.5
+    ],
+    [
+     0.0,
+     1.5
+    ],
+    [
+     0.0,
+     6.5
+    ],
+    [
+     -5.0,
+     6.5
+    ]
+   ]
+  }
+ },
+ "structure_labels": {
+  "ceiling": 242,
+  "floor": 241,
+  "other": 244,
+  "trim": 243,
+  "wall": 240
+ },
+ "world": "clinic"
+}

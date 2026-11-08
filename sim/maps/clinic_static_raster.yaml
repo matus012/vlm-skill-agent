@@ -1,0 +1,8 @@
+# probes/raster_map.py (task 008): sim/worlds/clinic/generated/clinic.sdf minus toolbox_red_1, chair_orange_1, chair_orange_2, chair_orange_3, chair_orange_4, sliced at z = 0.192915 m. map frame == world frame.
+image: clinic_static_raster.pgm
+mode: trinary
+resolution: 0.050
+origin: [-5.500, -7.000, 0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196

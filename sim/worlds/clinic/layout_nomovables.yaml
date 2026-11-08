@@ -1,0 +1,82 @@
+# 008 movables-free variant of layout.yaml (L1 2026-11-05: the Phase 5 Nav2 map comes from a SLAM Toolbox tour of this
+# world, so it holds no movable object). Identical to layout.yaml except that the 5 movables are removed:
+#   removed: - {id: chair_orange_1, class: chair, colour: orange, room: reception, pose: [-4.075, -6.15, 1.5708], state: null}
+#   removed: - {id: chair_orange_2, class: chair, colour: orange, room: reception, pose: [-3.025, -6.15, 1.5708], state: null}
+#   removed: - {id: chair_orange_3, class: chair, colour: orange, room: reception, pose: [-1.975, -6.15, 1.5708], state: null}
+#   removed: - {id: chair_orange_4, class: chair, colour: orange, room: reception, pose: [-0.925, -6.15, 1.5708], state: null}
+#   removed: - {id: toolbox_red_1, class: toolbox, colour: red, room: storage, pose: [0.4, -4.1, 1.5708], state: null}
+# Generate: python3 sim/worlds/clinic/generate.py sim/worlds/clinic/layout_nomovables.yaml --out sim/worlds/clinic/generated_nomovables
+# Clinic world, Phase 1 fixed layout (task 002). Single source of truth: generate.py turns this file into
+# generated/clinic.sdf + generated/truth.json (sim/INTERFACES.md section 2). World frame = Gazebo world frame,
+# metres / radians. Floor top at z = 0.
+#
+#        x: -5          -2.5           0            2.5           5
+#   y 6.5  +-------------+-------------+-------------+-------------+
+#          | WARD bed   bed   bed      |  OFFICE       desk        |
+#          |  trolley        place    screen   sofa   place  shelf |
+#   y 1.5  +---------------------[door]+[door]---------------------+
+#          |        HALL (robot spawns at 0,0)      place           |
+#   y-1.5  +--[door]-------------------+---------------------[door]-+
+#          |  RECEPTION      place    cooler  boxes  place  rack   |
+#          | counter chair chair chair chair  toolbox  cabinet     |
+#   y-6.5  +---------------------------+---------------------------+
+#
+# Doorways are staggered so that no room's place sees a countable object of another room (G4: ward/office doors at
+# the hall's inner ends, reception/storage doors at its outer ends; 2D check in tests/test_layout_spacing.py).
+# place_hint: where the room's objects were arranged to be photographed from (yaw 0 → photos at 0/90/180/270°,
+# seams at 45°/135°/225°/315°; every countable object lies inside one photo's wedge, >= 5° from a seam). Not part of
+# truth.json; the map + places step owns places.yaml (keep the two equal).
+# Countable spacing (L1 2026-11-04): >= 0.5 m of floor between any two beds / chairs (here 0.55 m), one row facing
+# the place so each gap stays visible; machine-checked by tests/test_layout_spacing.py. Ward and reception places
+# sit nearer the doorway wall than the other rooms' so the wider rows still fit inside one 90° photo.
+# Hall place (2.75, -0.1, 45°), not the spawn point: from (0,0) the ward beds show through the ward doorway; from the
+# east half no bed or chair is in sight (2D test + ray-cast, 002-W2). Spawn stays at (0,0).
+
+world: clinic
+wall: {height: 2.55, thickness: 0.1}
+ceiling: {z: 2.5, thickness: 0.1}
+door_height: 2.1
+countable_classes: [bed, chair]
+
+rooms:
+  hall:      {rect: [-5.0, -1.5, 5.0, 1.5],  floor: floor_hall, place_hint: [2.75, -0.1, 0.7854]}
+  ward:      {rect: [-5.0, 1.5, 0.0, 6.5],   floor: floor_ward, place_hint: [-2.5, 2.0, 0.0],
+              doorway: {wall: south, center: -1.2, width: 1.4}}
+  office:    {rect: [0.0, 1.5, 5.0, 6.5],    floor: floor_office, place_hint: [2.5, 3.8, 0.0],
+              doorway: {wall: south, center: 1.2, width: 1.4}}
+  reception: {rect: [-5.0, -6.5, 0.0, -1.5], floor: floor_reception, place_hint: [-2.5, -3.4, 0.0],
+              doorway: {wall: north, center: -3.6, width: 1.4}}
+  storage:   {rect: [0.0, -6.5, 5.0, -1.5],  floor: floor_storage, place_hint: [2.5, -3.9, 0.0],
+              doorway: {wall: north, center: 3.6, width: 1.4}}
+
+# Lamps (point, no shadows) just under the ceiling.
+lights:
+  - [-2.5, 4.0]
+  - [2.5, 4.0]
+  - [-2.5, -4.0]
+  - [2.5, -4.0]
+  - [-2.5, 0.0]
+  - [2.5, 0.0]
+
+# id: unique instance name = gz model name. class: generator's part library. pose: [x, y, yaw] on the floor.
+# state: only for classes with states (cabinet: open | closed), else null.
+objects:
+  # ward: 3 beds, heads against the north wall, 1.5 m pitch (0.55 m gaps), centred on the place's x
+  - {id: bed_blue_1, class: bed, colour: blue, room: ward, pose: [-4.0, 5.46, -1.5708], state: null}
+  - {id: bed_blue_2, class: bed, colour: blue, room: ward, pose: [-2.5, 5.46, -1.5708], state: null}
+  - {id: bed_blue_3, class: bed, colour: blue, room: ward, pose: [-1.0, 5.46, -1.5708], state: null}
+  - {id: trolley_white_1, class: trolley, colour: white, room: ward, pose: [-4.6, 3.0, 0.0], state: null}
+  - {id: screen_green_1, class: privacy_screen, colour: green, room: ward, pose: [-0.45, 3.4, 3.1416], state: null}
+  # reception: 4 waiting chairs against the south wall facing north, 1.05 m pitch (0.55 m gaps), counter, plant, cooler
+  - {id: counter_wood_1, class: reception_counter, colour: wood, room: reception, pose: [-4.55, -4.3, 0.0], state: null}
+  - {id: plant_green_1, class: plant, colour: green, room: reception, pose: [-0.5, -2.0, 0.0], state: null}
+  - {id: cooler_blue_1, class: water_cooler, colour: blue, room: reception, pose: [-0.3, -4.2, 3.1416], state: null}
+  # storage: red toolbox, cabinet (closed in Phase 1), shelf rack, stacked boxes
+  - {id: cabinet_blue_1, class: cabinet, colour: blue, room: storage, pose: [2.5, -6.19, 1.5708], state: closed}
+  - {id: rack_metal_1, class: shelf_rack, colour: metal, room: storage, pose: [4.65, -4.3, 3.1416], state: null}
+  - {id: boxes_brown_1, class: boxes_stack, colour: cardboard, room: storage, pose: [0.8, -2.0, 0.0], state: null}
+  # office: desk, bookshelf, sofa, plant
+  - {id: desk_wood_1, class: desk, colour: wood, room: office, pose: [2.5, 6.1, -1.5708], state: null}
+  - {id: bookshelf_wood_1, class: bookshelf, colour: wood, room: office, pose: [4.77, 4.0, 3.1416], state: null}
+  - {id: sofa_teal_1, class: sofa, colour: teal, room: office, pose: [0.5, 4.0, 0.0], state: null}
+  - {id: plant_green_2, class: plant, colour: green, room: office, pose: [4.5, 6.0, 0.0], state: null}

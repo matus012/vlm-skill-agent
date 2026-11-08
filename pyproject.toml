@@ -1,0 +1,18 @@
+[project]
+name = "vlm-skill-agent"
+version = "0.0.0"
+description = "VLM planner + skill caller + executor (115_vlm_agent)"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "jsonschema>=4.23",
+    "numpy>=1.26,<2",  # <2: same major as the system numpy 1.26.4 that ROS Jazzy (rclpy, cv_bridge) is built against
+    "openai>=1.60",
+    "pillow>=11",
+    "pyyaml>=6",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

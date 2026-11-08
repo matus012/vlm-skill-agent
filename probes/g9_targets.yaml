@@ -1,0 +1,30 @@
+# G9 readable objects (task 002): what the VLM must name, and the synonyms that count as naming it.
+# Fixed 2026-11-04 before any G9 run (the gate rule: synonyms listed before the run). Changing this file after a run
+# is a deviation-log entry, not a fix.
+#
+# Gated = a class a brief task can name (115_vlm_agent.md -> Tasks; task 002 Design -> Objects):
+#   Find / Conditional -> toolbox ("Find the red toolbox"); Check state -> cabinet (open + closed);
+#   Count -> chair, bed (truth.json countable: true). No other class is a task target: plant is in two rooms (a Find
+#   on it has no single answer); desk, sofa, bookshelf, counter, trolley, screen, cooler, rack, boxes are the
+#   "ordinary furnishings so photos aren't empty" of the Design. They are asked about (informative), never gated.
+#   If a later phase makes one of them a Find target, it becomes gated and G9 is re-run for it.
+#
+# Match (probes/g9_readable.py): case-insensitive, whole word, on the answer content (never the reasoning);
+# a synonym may end in "s" or "es" (plural); words of a multi-word synonym may be joined by spaces or a hyphen.
+# Colour is not required. Conservative on purpose: a synonym that could name a *different* object in the same photo
+# is left out (e.g. bed: no "gurney"/"stretcher" -- the ward's white trolley could be called that; chair: no "seat").
+classes:
+  toolbox:           {gated: true, synonyms: [toolbox, tool box, tool chest, toolchest]}
+  cabinet:           {gated: true, states: [open, closed], synonyms: [cabinet, cupboard, locker]}
+  chair:             {gated: true, synonyms: [chair, armchair]}
+  bed:               {gated: true, synonyms: [bed, cot]}
+  trolley:           {informative: true, synonyms: [trolley, cart]}
+  privacy_screen:    {informative: true, synonyms: [screen, partition, divider, room divider]}
+  reception_counter: {informative: true, synonyms: [counter, reception desk]}
+  plant:             {informative: true, synonyms: [plant, houseplant, potted plant]}
+  water_cooler:      {informative: true, synonyms: [water cooler, cooler, water dispenser, dispenser]}
+  shelf_rack:        {informative: true, synonyms: [shelf, shelves, shelving, rack]}
+  boxes_stack:       {informative: true, synonyms: [box, carton]}
+  desk:              {informative: true, synonyms: [desk, table]}
+  bookshelf:         {informative: true, synonyms: [bookshelf, bookshelves, bookcase]}
+  sofa:              {informative: true, synonyms: [sofa, couch, settee]}

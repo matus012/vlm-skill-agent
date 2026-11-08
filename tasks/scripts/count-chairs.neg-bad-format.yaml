@@ -1,0 +1,6 @@
+# G2 negative control: wrong answer format ("four" for count) -> error back, not scored as an answer;
+# then the correct report (passes, 4 steps).
+- {name: navigate_to, args: {place: reception}}
+- {name: look_around, args: {}}
+- {name: report, args: {answer: four, photo: 4, note: bad format on purpose}}
+- {name: report, args: {answer: "4", photo: 4, note: scripted}}

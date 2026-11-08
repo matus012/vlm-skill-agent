@@ -1,0 +1,105 @@
+# Phase 8 pass 1 test prompts (task 011): the tasks of the valid entries of the sealed stream, in stream
+# order, rendered by the unchanged generator (dev.yaml format). Written by probes/build_phase8.py.
+# pass file sha256 79d73b94ba5a26631f73aa240063f5eafaf2bf09b14573c99acd125417425da9
+# fresh seeds sha256 8893d2ed13b9125685e4c72c93dcf063624be0af19c03be7e4dbe5240e50f3d9
+# generator sha256 58dee46230ad83b7c49ddb39060d03482444df4b796b2cc98fac338b9b74eb4b
+- {id: p8-1-01-find, kind: find, prompt: "Track down the red toolbox.", target: {object: toolbox_red_1}}
+- {id: p8-1-01-count, kind: count, prompt: "What is the number of chairs in storage?", target: {class: chair, room: storage}}
+- {id: p8-1-02-count, kind: count, prompt: "Count the chairs in the office.", target: {class: chair, room: office}}
+- {id: p8-1-03-find, kind: find, prompt: "Go and see where the orange chairs are, then report the room.", target: {class: chair, colour: orange}}
+- {id: p8-1-03-cond, kind: conditional, prompt: "Look for the orange chairs in the storage room, and if they aren't there, go to the office.", target: {class: chair, colour: orange, if_not_in: storage, else_room: office}}
+- {id: p8-1-06-find, kind: find, prompt: "Track down the orange seats.", target: {class: chair, colour: orange}}
+- {id: p8-1-06-count, kind: count, prompt: "Tell me how many hospital beds the ward has.", target: {class: bed, room: ward}}
+- {id: p8-1-06-cond, kind: conditional, prompt: "Should the orange seats not be in the storage room, check the office instead.", target: {class: chair, colour: orange, if_not_in: storage, else_room: office}}
+- {id: p8-1-07-count, kind: count, prompt: "How many beds are there in the ward?", target: {class: bed, room: ward}}
+- {id: p8-1-09-find, kind: find, prompt: "In which room are the orange chairs?", target: {class: chair, colour: orange}}
+- {id: p8-1-11-find, kind: find, prompt: "Which room are the patient beds in?", target: {class: bed}}
+- {id: p8-1-11-count, kind: count, prompt: "What is the number of beds in the ward?", target: {class: bed, room: ward}}
+- {id: p8-1-11-cond, kind: conditional, prompt: "Check the ward for the patient beds; if they aren't there, try the office.", target: {class: bed, if_not_in: ward, else_room: office}}
+- {id: p8-1-12-state, kind: check_state, prompt: "Are the cabinet doors closed?", target: {object: cabinet_blue_1, state: closed}}
+- {id: p8-1-13-count, kind: count, prompt: "Count the beds in the ward.", target: {class: bed, room: ward}}
+- {id: p8-1-13-cond, kind: conditional, prompt: "Look for the hospital beds in the ward, and if they aren't there, go to the storage room.", target: {class: bed, if_not_in: ward, else_room: storage}}
+- {id: p8-1-16-find, kind: find, prompt: "Locate the orange seats.", target: {class: chair, colour: orange}}
+- {id: p8-1-16-count, kind: count, prompt: "Tell me how many hospital beds the ward has.", target: {class: bed, room: ward}}
+- {id: p8-1-17-find, kind: find, prompt: "Track down the orange chairs.", target: {class: chair, colour: orange}}
+- {id: p8-1-17-state, kind: check_state, prompt: "Has the blue cabinet been left open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-17-cond, kind: conditional, prompt: "Should the orange seats not be in the office, check storage instead.", target: {class: chair, colour: orange, if_not_in: office, else_room: storage}}
+- {id: p8-1-18-find, kind: find, prompt: "Tell me which room has the orange chairs.", target: {class: chair, colour: orange}}
+- {id: p8-1-18-state, kind: check_state, prompt: "Is the blue cabinet standing open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-18-count, kind: count, prompt: "What is the number of beds in the ward?", target: {class: bed, room: ward}}
+- {id: p8-1-18-cond, kind: conditional, prompt: "Look for the orange seats in the office, and if they aren't there, go to storage.", target: {class: chair, colour: orange, if_not_in: office, else_room: storage}}
+- {id: p8-1-20-find, kind: find, prompt: "Locate the orange chairs.", target: {class: chair, colour: orange}}
+- {id: p8-1-20-state, kind: check_state, prompt: "Are the cabinet doors open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-20-count, kind: count, prompt: "Count the beds in the ward.", target: {class: bed, room: ward}}
+- {id: p8-1-20-cond, kind: conditional, prompt: "Check the ward for the hospital beds; if they aren't there, try the office.", target: {class: bed, if_not_in: ward, else_room: office}}
+- {id: p8-1-21-count, kind: count, prompt: "How many chairs are there in the storage room?", target: {class: chair, room: storage}}
+- {id: p8-1-21-cond, kind: conditional, prompt: "Should the red tool box not be in the ward, check reception instead.", target: {object: toolbox_red_1, if_not_in: ward, else_room: reception}}
+- {id: p8-1-22-find, kind: find, prompt: "Tell me which room has the red toolbox.", target: {object: toolbox_red_1}}
+- {id: p8-1-22-count, kind: count, prompt: "Count the chairs in the reception area.", target: {class: chair, room: reception}}
+- {id: p8-1-23-cond, kind: conditional, prompt: "Look for the orange seats in the storage room, and if they aren't there, go to the ward.", target: {class: chair, colour: orange, if_not_in: storage, else_room: ward}}
+- {id: p8-1-24-count, kind: count, prompt: "How many chairs are there in the storage room?", target: {class: chair, room: storage}}
+- {id: p8-1-25-find, kind: find, prompt: "Locate the orange chairs.", target: {class: chair, colour: orange}}
+- {id: p8-1-26-find, kind: find, prompt: "Tell me which room has the orange seats.", target: {class: chair, colour: orange}}
+- {id: p8-1-26-state, kind: check_state, prompt: "Has the blue cabinet been left open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-26-count, kind: count, prompt: "Count the chairs in storage.", target: {class: chair, room: storage}}
+- {id: p8-1-26-cond, kind: conditional, prompt: "If the cabinet isn't in the storage room, look in the ward.", target: {object: cabinet_blue_1, if_not_in: storage, else_room: ward}}
+- {id: p8-1-27-cond, kind: conditional, prompt: "Should the toolbox not be in the ward, check reception instead.", target: {object: toolbox_red_1, if_not_in: ward, else_room: reception}}
+- {id: p8-1-28-find, kind: find, prompt: "Track down the orange chairs.", target: {class: chair, colour: orange}}
+- {id: p8-1-28-count, kind: count, prompt: "How many chairs are there in the ward?", target: {class: chair, room: ward}}
+- {id: p8-1-29-find, kind: find, prompt: "Tell me which room has the patient beds.", target: {class: bed}}
+- {id: p8-1-29-count, kind: count, prompt: "How many chairs are there in the reception area?", target: {class: chair, room: reception}}
+- {id: p8-1-30-find, kind: find, prompt: "Locate the orange chairs.", target: {class: chair, colour: orange}}
+- {id: p8-1-30-count, kind: count, prompt: "How many beds are there in the ward?", target: {class: bed, room: ward}}
+- {id: p8-1-30-cond, kind: conditional, prompt: "Should the toolbox not be in reception, check the office instead.", target: {object: toolbox_red_1, if_not_in: reception, else_room: office}}
+- {id: p8-1-31-count, kind: count, prompt: "Tell me how many seats storage has.", target: {class: chair, room: storage}}
+- {id: p8-1-31-cond, kind: conditional, prompt: "Unless the toolbox is in the reception area, search the office.", target: {object: toolbox_red_1, if_not_in: reception, else_room: office}}
+- {id: p8-1-32-count, kind: count, prompt: "Tell me how many seats the office has.", target: {class: chair, room: office}}
+- {id: p8-1-33-state, kind: check_state, prompt: "Are the cabinet doors open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-34-find, kind: find, prompt: "In which room is the red toolbox?", target: {object: toolbox_red_1}}
+- {id: p8-1-34-count, kind: count, prompt: "Count the chairs in the office.", target: {class: chair, room: office}}
+- {id: p8-1-35-state, kind: check_state, prompt: "Check whether the blue cabinet is closed.", target: {object: cabinet_blue_1, state: closed}}
+- {id: p8-1-37-find, kind: find, prompt: "Which room is the cabinet in?", target: {object: cabinet_blue_1}}
+- {id: p8-1-37-state, kind: check_state, prompt: "Has the blue cabinet been left open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-37-count, kind: count, prompt: "What is the number of beds in the ward?", target: {class: bed, room: ward}}
+- {id: p8-1-37-cond, kind: conditional, prompt: "Should the tall blue cabinet not be in reception, check the storage room instead.", target: {object: cabinet_blue_1, if_not_in: reception, else_room: storage}}
+- {id: p8-1-38-find, kind: find, prompt: "Which room is the red toolbox in?", target: {object: toolbox_red_1}}
+- {id: p8-1-40-count, kind: count, prompt: "Count the chairs in the reception area.", target: {class: chair, room: reception}}
+- {id: p8-1-41-state, kind: check_state, prompt: "Are the cabinet doors closed?", target: {object: cabinet_blue_1, state: closed}}
+- {id: p8-1-43-count, kind: count, prompt: "Tell me how many seats the reception area has.", target: {class: chair, room: reception}}
+- {id: p8-1-45-state, kind: check_state, prompt: "Is the blue cabinet standing open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-45-cond, kind: conditional, prompt: "Unless the cabinet is in the ward, search storage.", target: {object: cabinet_blue_1, if_not_in: ward, else_room: storage}}
+- {id: p8-1-46-count, kind: count, prompt: "Count the chairs in the storage room.", target: {class: chair, room: storage}}
+- {id: p8-1-46-cond, kind: conditional, prompt: "Should the orange seats not be in the storage room, check the ward instead.", target: {class: chair, colour: orange, if_not_in: storage, else_room: ward}}
+- {id: p8-1-47-state, kind: check_state, prompt: "Are the cabinet doors open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-50-find, kind: find, prompt: "Locate the toolbox.", target: {object: toolbox_red_1}}
+- {id: p8-1-50-state, kind: check_state, prompt: "Has the blue cabinet been left open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-50-count, kind: count, prompt: "How many chairs are there in storage?", target: {class: chair, room: storage}}
+- {id: p8-1-51-cond, kind: conditional, prompt: "Should the orange chairs not be in the ward, check reception instead.", target: {class: chair, colour: orange, if_not_in: ward, else_room: reception}}
+- {id: p8-1-52-state, kind: check_state, prompt: "Is the blue cabinet standing open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-53-find, kind: find, prompt: "Go and see where the orange seats are, then report the room.", target: {class: chair, colour: orange}}
+- {id: p8-1-53-count, kind: count, prompt: "Tell me how many seats the office has.", target: {class: chair, room: office}}
+- {id: p8-1-55-cond, kind: conditional, prompt: "Should the red tool box not be in storage, check the reception area instead.", target: {object: toolbox_red_1, if_not_in: storage, else_room: reception}}
+- {id: p8-1-56-cond, kind: conditional, prompt: "Unless the red toolbox is in the ward, search storage.", target: {object: toolbox_red_1, if_not_in: ward, else_room: storage}}
+- {id: p8-1-59-state, kind: check_state, prompt: "Is the blue cabinet standing open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-60-find, kind: find, prompt: "Which room are the orange chairs in?", target: {class: chair, colour: orange}}
+- {id: p8-1-60-cond, kind: conditional, prompt: "If the red toolbox isn't in reception, look in the office.", target: {object: toolbox_red_1, if_not_in: reception, else_room: office}}
+- {id: p8-1-61-find, kind: find, prompt: "Locate the orange chairs.", target: {class: chair, colour: orange}}
+- {id: p8-1-62-find, kind: find, prompt: "Locate the orange seats.", target: {class: chair, colour: orange}}
+- {id: p8-1-62-cond, kind: conditional, prompt: "Look for the orange seats in the office, and if they aren't there, go to the storage room.", target: {class: chair, colour: orange, if_not_in: office, else_room: storage}}
+- {id: p8-1-64-find, kind: find, prompt: "In which room are the orange seats?", target: {class: chair, colour: orange}}
+- {id: p8-1-65-find, kind: find, prompt: "In which room are the orange seats?", target: {class: chair, colour: orange}}
+- {id: p8-1-65-state, kind: check_state, prompt: "Are the cabinet doors closed?", target: {object: cabinet_blue_1, state: closed}}
+- {id: p8-1-65-cond, kind: conditional, prompt: "Check the reception area for the red tool box; if it isn't there, try the storage room.", target: {object: toolbox_red_1, if_not_in: reception, else_room: storage}}
+- {id: p8-1-67-state, kind: check_state, prompt: "Has the blue cabinet been left open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-67-cond, kind: conditional, prompt: "Unless the red toolbox is in the storage room, search the office.", target: {object: toolbox_red_1, if_not_in: storage, else_room: office}}
+- {id: p8-1-68-state, kind: check_state, prompt: "Check whether the cabinet is open.", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-69-state, kind: check_state, prompt: "Are the doors of the cabinet shut?", target: {object: cabinet_blue_1, state: closed}}
+- {id: p8-1-70-cond, kind: conditional, prompt: "Unless the orange chairs are in the office, search the ward.", target: {class: chair, colour: orange, if_not_in: office, else_room: ward}}
+- {id: p8-1-71-cond, kind: conditional, prompt: "Look for the orange seats in the storage room, and if they aren't there, go to the reception area.", target: {class: chair, colour: orange, if_not_in: storage, else_room: reception}}
+- {id: p8-1-76-state, kind: check_state, prompt: "Has the blue cabinet been left open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-77-state, kind: check_state, prompt: "Check whether the cabinet is open.", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-83-state, kind: check_state, prompt: "Has the blue cabinet been left open?", target: {object: cabinet_blue_1, state: open}}
+- {id: p8-1-88-state, kind: check_state, prompt: "Is the blue cabinet shut?", target: {object: cabinet_blue_1, state: closed}}
+- {id: p8-1-89-state, kind: check_state, prompt: "Are the cabinet doors closed?", target: {object: cabinet_blue_1, state: closed}}
+- {id: p8-1-90-state, kind: check_state, prompt: "Check whether the blue cabinet is closed.", target: {object: cabinet_blue_1, state: closed}}
+- {id: p8-1-95-state, kind: check_state, prompt: "Are the doors of the cabinet shut?", target: {object: cabinet_blue_1, state: closed}}

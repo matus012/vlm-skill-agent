@@ -1,0 +1,774 @@
+{
+ "0": {
+  "poses": {
+   "chair_orange_1": [
+    0.543,
+    -3.078,
+    -0.3977
+   ],
+   "chair_orange_2": [
+    -0.449,
+    2.02,
+    -3.1318
+   ],
+   "chair_orange_3": [
+    -0.553,
+    -3.462,
+    3.1098
+   ],
+   "chair_orange_4": [
+    1.05,
+    -6.1,
+    0.9881
+   ],
+   "toolbox_red_1": [
+    -4.316,
+    -2.534,
+    1.1258
+   ]
+  }
+ },
+ "1": {
+  "rejected": [
+   "chair_orange_1-chair_orange_3: gap 0.00 m",
+   "chair_orange_1-chair_orange_3: overlap seen from the place"
+  ]
+ },
+ "2": {
+  "poses": {
+   "chair_orange_1": [
+    -0.434,
+    1.99,
+    3.1368
+   ],
+   "chair_orange_2": [
+    -4.554,
+    1.85,
+    0.0729
+   ],
+   "chair_orange_3": [
+    -4.355,
+    -2.7,
+    -0.3608
+   ],
+   "chair_orange_4": [
+    1.325,
+    6.074,
+    -1.0939
+   ],
+   "toolbox_red_1": [
+    2.438,
+    1.861,
+    3.1096
+   ]
+  }
+ },
+ "3": {
+  "poses": {
+   "chair_orange_1": [
+    2.478,
+    2.099,
+    1.5579
+   ],
+   "chair_orange_2": [
+    -2.414,
+    -5.55,
+    1.6108
+   ],
+   "chair_orange_3": [
+    0.656,
+    -4.634,
+    0.3788
+   ],
+   "chair_orange_4": [
+    -0.376,
+    2.081,
+    -3.1035
+   ],
+   "toolbox_red_1": [
+    4.536,
+    2.823,
+    -2.0182
+   ]
+  }
+ },
+ "4": {
+  "rejected": [
+   "chair_orange_3-chair_orange_4: gap 0.00 m",
+   "chair_orange_3-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "5": {
+  "poses": {
+   "chair_orange_1": [
+    -0.651,
+    -2.875,
+    -2.8649
+   ],
+   "chair_orange_2": [
+    -2.408,
+    -5.526,
+    1.614
+   ],
+   "chair_orange_3": [
+    -0.404,
+    2.052,
+    -3.1168
+   ],
+   "chair_orange_4": [
+    2.471,
+    -1.932,
+    -1.5561
+   ],
+   "toolbox_red_1": [
+    0.547,
+    -3.233,
+    1.2417
+   ]
+  }
+ },
+ "6": {
+  "rejected": [
+   "toolbox_red_1-chair_orange_2: gap 0.00 m"
+  ]
+ },
+ "7": {
+  "poses": {
+   "chair_orange_1": [
+    2.451,
+    1.917,
+    1.5448
+   ],
+   "chair_orange_2": [
+    0.428,
+    -4.76,
+    0.3934
+   ],
+   "chair_orange_3": [
+    -4.641,
+    1.85,
+    0.0699
+   ],
+   "chair_orange_4": [
+    -0.424,
+    2.096,
+    -3.0954
+   ],
+   "toolbox_red_1": [
+    -3.271,
+    -5.634,
+    2.8093
+   ]
+  }
+ },
+ "8": {
+  "rejected": [
+   "toolbox_red_1-chair_orange_3: gap 0.05 m",
+   "toolbox_red_1-chair_orange_3: overlap seen from the place"
+  ]
+ },
+ "9": {
+  "rejected": [
+   "chair_orange_1-chair_orange_2: gap 0.17 m"
+  ]
+ },
+ "10": {
+  "rejected": [
+   "chair_orange_2-chair_orange_3: gap 0.00 m",
+   "chair_orange_2-chair_orange_3: overlap seen from the place"
+  ]
+ },
+ "11": {
+  "rejected": [
+   "chair_orange_1-chair_orange_2: gap 0.00 m",
+   "chair_orange_1-chair_orange_2: overlap seen from the place"
+  ]
+ },
+ "12": {
+  "rejected": [
+   "toolbox_red_1-chair_orange_2: gap 0.00 m",
+   "toolbox_red_1-chair_orange_2: overlap seen from the place"
+  ]
+ },
+ "13": {
+  "rejected": [
+   "toolbox_red_1-chair_orange_1: gap 0.00 m",
+   "toolbox_red_1-chair_orange_1: overlap seen from the place",
+   "chair_orange_2-chair_orange_4: gap 0.00 m",
+   "chair_orange_2-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "14": {
+  "poses": {
+   "chair_orange_1": [
+    3.372,
+    1.979,
+    2.0174
+   ],
+   "chair_orange_2": [
+    -0.695,
+    -2.873,
+    -2.8575
+   ],
+   "chair_orange_3": [
+    -4.439,
+    -2.783,
+    -0.3081
+   ],
+   "chair_orange_4": [
+    -1.692,
+    -1.9,
+    -2.0649
+   ],
+   "toolbox_red_1": [
+    4.499,
+    2.815,
+    -2.0286
+   ]
+  }
+ },
+ "15": {
+  "rejected": [
+   "toolbox_red_1-chair_orange_4: gap 0.00 m",
+   "toolbox_red_1-chair_orange_4: overlap seen from the place",
+   "chair_orange_1-chair_orange_2: gap 0.00 m",
+   "chair_orange_1-chair_orange_2: overlap seen from the place"
+  ]
+ },
+ "16": {
+  "rejected": [
+   "chair_orange_1-chair_orange_4: gap 0.00 m",
+   "chair_orange_1-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "17": {
+  "poses": {
+   "chair_orange_1": [
+    1.05,
+    -6.1,
+    0.9881
+   ],
+   "chair_orange_2": [
+    -1.681,
+    -1.9,
+    -2.0706
+   ],
+   "chair_orange_3": [
+    -4.213,
+    -2.539,
+    -0.4657
+   ],
+   "chair_orange_4": [
+    -3.261,
+    -5.549,
+    1.2305
+   ],
+   "toolbox_red_1": [
+    0.565,
+    -3.597,
+    1.4155
+   ]
+  }
+ },
+ "18": {
+  "poses": {
+   "chair_orange_1": [
+    -0.454,
+    2.065,
+    -3.1098
+   ],
+   "chair_orange_2": [
+    0.478,
+    -3.062,
+    -0.3929
+   ],
+   "chair_orange_3": [
+    -0.67,
+    -3.059,
+    -2.9574
+   ],
+   "chair_orange_4": [
+    4.243,
+    4.732,
+    -2.6506
+   ],
+   "toolbox_red_1": [
+    4.543,
+    2.831,
+    -2.0137
+   ]
+  }
+ },
+ "19": {
+  "poses": {
+   "chair_orange_1": [
+    -0.431,
+    1.977,
+    3.1305
+   ],
+   "chair_orange_2": [
+    -4.601,
+    1.85,
+    0.0713
+   ],
+   "chair_orange_3": [
+    4.239,
+    4.634,
+    -2.6944
+   ],
+   "chair_orange_4": [
+    2.349,
+    -2.129,
+    -1.4857
+   ],
+   "toolbox_red_1": [
+    0.6,
+    -4.365,
+    1.8108
+   ]
+  }
+ },
+ "20": {
+  "rejected": [
+   "chair_orange_2-chair_orange_4: gap 0.00 m",
+   "chair_orange_2-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "21": {
+  "rejected": [
+   "chair_orange_2-chair_orange_4: gap 0.00 m",
+   "chair_orange_2-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "22": {
+  "poses": {
+   "chair_orange_1": [
+    4.212,
+    4.765,
+    -2.6283
+   ],
+   "chair_orange_2": [
+    -4.504,
+    1.85,
+    0.0747
+   ],
+   "chair_orange_3": [
+    1.05,
+    -6.1,
+    0.9881
+   ],
+   "chair_orange_4": [
+    3.387,
+    2.015,
+    2.032
+   ],
+   "toolbox_red_1": [
+    4.511,
+    2.844,
+    -2.0146
+   ]
+  }
+ },
+ "23": {
+  "poses": {
+   "chair_orange_1": [
+    -0.497,
+    1.954,
+    3.1186
+   ],
+   "chair_orange_2": [
+    -4.515,
+    1.85,
+    0.0743
+   ],
+   "chair_orange_3": [
+    -2.665,
+    -5.587,
+    1.4955
+   ],
+   "chair_orange_4": [
+    1.05,
+    -6.1,
+    0.9881
+   ],
+   "toolbox_red_1": [
+    -4.394,
+    -2.674,
+    1.2048
+   ]
+  }
+ },
+ "24": {
+  "rejected": [
+   "chair_orange_2-chair_orange_4: gap 0.00 m",
+   "chair_orange_2-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "25": {
+  "poses": {
+   "chair_orange_1": [
+    -0.489,
+    2.056,
+    -3.1138
+   ],
+   "chair_orange_2": [
+    3.352,
+    2.015,
+    2.0161
+   ],
+   "chair_orange_3": [
+    -1.674,
+    -1.9,
+    -2.0742
+   ],
+   "chair_orange_4": [
+    1.05,
+    -6.1,
+    0.9881
+   ],
+   "toolbox_red_1": [
+    -0.385,
+    -3.149,
+    -1.4527
+   ]
+  }
+ },
+ "26": {
+  "rejected": [
+   "chair_orange_1-chair_orange_2: gap 0.12 m"
+  ]
+ },
+ "27": {
+  "rejected": [
+   "toolbox_red_1-chair_orange_1: gap 0.00 m",
+   "toolbox_red_1-chair_orange_1: overlap seen from the place"
+  ]
+ },
+ "28": {
+  "rejected": [
+   "chair_orange_3-chair_orange_4: gap 0.00 m",
+   "chair_orange_3-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "29": {
+  "poses": {
+   "chair_orange_1": [
+    -0.529,
+    2.061,
+    -3.1107
+   ],
+   "chair_orange_2": [
+    -1.66,
+    -1.9,
+    -2.0813
+   ],
+   "chair_orange_3": [
+    -2.858,
+    -5.492,
+    1.4013
+   ],
+   "chair_orange_4": [
+    -4.525,
+    1.85,
+    0.0739
+   ],
+   "toolbox_red_1": [
+    0.509,
+    -4.865,
+    2.0221
+   ]
+  }
+ },
+ "30": {
+  "poses": {
+   "chair_orange_1": [
+    -0.615,
+    -2.756,
+    -2.8124
+   ],
+   "chair_orange_2": [
+    -0.545,
+    2.2,
+    -3.0396
+   ],
+   "chair_orange_3": [
+    2.893,
+    1.98,
+    1.7835
+   ],
+   "chair_orange_4": [
+    -4.359,
+    -2.87,
+    -0.2777
+   ],
+   "toolbox_red_1": [
+    0.51,
+    -3.713,
+    1.4771
+   ]
+  }
+ },
+ "31": {
+  "rejected": [
+   "toolbox_red_1-chair_orange_4: gap 0.00 m",
+   "toolbox_red_1-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "32": {
+  "rejected": [
+   "toolbox_red_1-chair_orange_2: gap 0.12 m"
+  ]
+ },
+ "33": {
+  "rejected": [
+   "toolbox_red_1-chair_orange_4: gap 0.00 m",
+   "toolbox_red_1-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "34": {
+  "rejected": [
+   "chair_orange_2-chair_orange_4: gap 0.00 m",
+   "chair_orange_2-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "35": {
+  "rejected": [
+   "chair_orange_1-chair_orange_3: gap 0.00 m",
+   "chair_orange_1-chair_orange_3: overlap seen from the place"
+  ]
+ },
+ "36": {
+  "rejected": [
+   "chair_orange_1-chair_orange_2: gap 0.00 m",
+   "chair_orange_1-chair_orange_2: overlap seen from the place",
+   "chair_orange_1-chair_orange_4: gap 0.00 m",
+   "chair_orange_1-chair_orange_4: overlap seen from the place",
+   "chair_orange_2-chair_orange_4: gap 0.00 m",
+   "chair_orange_2-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "37": {
+  "rejected": [
+   "toolbox_red_1-chair_orange_4: gap 0.00 m",
+   "chair_orange_1-chair_orange_2: gap 0.00 m",
+   "chair_orange_1-chair_orange_2: overlap seen from the place"
+  ]
+ },
+ "38": {
+  "rejected": [
+   "toolbox_red_1-chair_orange_2: gap 0.00 m",
+   "toolbox_red_1-chair_orange_2: overlap seen from the place",
+   "chair_orange_3-chair_orange_4: gap 0.00 m",
+   "chair_orange_3-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "39": {
+  "poses": {
+   "chair_orange_1": [
+    -4.295,
+    -2.58,
+    -0.4285
+   ],
+   "chair_orange_2": [
+    2.253,
+    -1.891,
+    -1.4485
+   ],
+   "chair_orange_3": [
+    -0.477,
+    1.977,
+    3.1302
+   ],
+   "chair_orange_4": [
+    1.206,
+    6.05,
+    -1.0489
+   ],
+   "toolbox_red_1": [
+    4.459,
+    2.828,
+    -2.0314
+   ]
+  }
+ },
+ "40": {
+  "rejected": [
+   "chair_orange_2-chair_orange_4: gap 0.00 m",
+   "chair_orange_2-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "41": {
+  "poses": {
+   "chair_orange_1": [
+    -4.427,
+    -2.571,
+    -0.4063
+   ],
+   "chair_orange_2": [
+    2.163,
+    1.95,
+    1.3906
+   ],
+   "chair_orange_3": [
+    4.222,
+    3.076,
+    2.7436
+   ],
+   "chair_orange_4": [
+    2.493,
+    -2.088,
+    -1.5669
+   ],
+   "toolbox_red_1": [
+    -1.747,
+    -5.873,
+    -2.846
+   ]
+  }
+ },
+ "42": {
+  "rejected": [
+   "chair_orange_1-chair_orange_2: gap 0.00 m",
+   "chair_orange_1-chair_orange_2: overlap seen from the place"
+  ]
+ },
+ "43": {
+  "rejected": [
+   "chair_orange_1-chair_orange_4: gap 0.00 m",
+   "chair_orange_1-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "44": {
+  "rejected": [
+   "chair_orange_2-chair_orange_4: gap 0.35 m"
+  ]
+ },
+ "45": {
+  "poses": {
+   "chair_orange_1": [
+    2.19,
+    -1.917,
+    -1.4157
+   ],
+   "chair_orange_2": [
+    0.742,
+    -3.586,
+    -0.1767
+   ],
+   "chair_orange_3": [
+    -0.746,
+    -2.945,
+    -2.8878
+   ],
+   "chair_orange_4": [
+    -0.508,
+    2.162,
+    -3.0604
+   ],
+   "toolbox_red_1": [
+    -4.432,
+    -2.686,
+    1.2168
+   ]
+  }
+ },
+ "46": {
+  "poses": {
+   "chair_orange_1": [
+    1.05,
+    -6.1,
+    0.9881
+   ],
+   "chair_orange_2": [
+    -0.44,
+    2.024,
+    -3.1299
+   ],
+   "chair_orange_3": [
+    1.342,
+    6.087,
+    -1.1021
+   ],
+   "chair_orange_4": [
+    4.22,
+    4.231,
+    -2.8961
+   ],
+   "toolbox_red_1": [
+    4.405,
+    2.839,
+    -2.038
+   ]
+  }
+ },
+ "47": {
+  "rejected": [
+   "toolbox_red_1-chair_orange_4: gap 0.00 m",
+   "toolbox_red_1-chair_orange_4: overlap seen from the place"
+  ]
+ },
+ "48": {
+  "poses": {
+   "chair_orange_1": [
+    -0.603,
+    -3.491,
+    3.0937
+   ],
+   "chair_orange_2": [
+    2.929,
+    2.002,
+    1.805
+   ],
+   "chair_orange_3": [
+    -3.094,
+    -6.027,
+    1.3484
+   ],
+   "chair_orange_4": [
+    4.207,
+    4.162,
+    -2.9326
+   ],
+   "toolbox_red_1": [
+    0.475,
+    -3.113,
+    1.2001
+   ]
+  }
+ },
+ "49": {
+  "poses": {
+   "chair_orange_1": [
+    -4.531,
+    -2.57,
+    -0.388
+   ],
+   "chair_orange_2": [
+    1.05,
+    -6.1,
+    0.9881
+   ],
+   "chair_orange_3": [
+    -4.564,
+    1.85,
+    0.0725
+   ],
+   "chair_orange_4": [
+    -1.664,
+    -1.9,
+    -2.0793
+   ],
+   "toolbox_red_1": [
+    4.502,
+    2.838,
+    -2.0187
+   ]
+  }
+ },
+ "50": {
+  "rejected": [
+   "chair_orange_1-chair_orange_2: gap 0.00 m",
+   "chair_orange_1-chair_orange_2: overlap seen from the place"
+  ]
+ }
+}

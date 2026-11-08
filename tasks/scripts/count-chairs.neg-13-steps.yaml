@@ -1,0 +1,15 @@
+# G2 negative control: 12 non-report steps (navigate_to + 11 look_around, no extra drives), the report would be
+# step 13 -> the runtime stops at 12 (outcome fail_step_limit), must fail check 3 (steps).
+- {name: navigate_to, args: {place: reception}}
+- {name: look_around, args: {}}
+- {name: look_around, args: {}}
+- {name: look_around, args: {}}
+- {name: look_around, args: {}}
+- {name: look_around, args: {}}
+- {name: look_around, args: {}}
+- {name: look_around, args: {}}
+- {name: look_around, args: {}}
+- {name: look_around, args: {}}
+- {name: look_around, args: {}}
+- {name: look_around, args: {}}
+- {name: report, args: {answer: "4", photo: 4, note: never reached}}

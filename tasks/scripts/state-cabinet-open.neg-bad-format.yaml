@@ -1,0 +1,6 @@
+# G2 negative control: wrong answer format ("maybe" for check_state) -> error back, not scored as an answer;
+# then the correct report (passes, 4 steps).
+- {name: navigate_to, args: {place: storage}}
+- {name: look_around, args: {}}
+- {name: report, args: {answer: maybe, photo: 4, note: bad format on purpose}}
+- {name: report, args: {answer: "no", photo: 4, note: scripted}}

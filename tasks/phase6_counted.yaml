@@ -1,0 +1,30 @@
+# Task 009 counted set: 20 runs = 10 blocked (world blocked_<room>: answer never in the blocked room, no start in it)
+# + 10 guard (closed / cabinet_open, Phase 5 style) on seeded layouts, each used once, written before any Phase 6 VLM
+# output. Entry {run_id, task_id, start_place, seed, layout_seed, world}. task_id resolves in tasks/dev.yaml, then
+# tasks/phase5_tasks.yaml, then tasks/phase6_tasks.yaml. True answers are never written here: agent/truth.run_truth
+# derives them from truth_for(layout_seed, world). Checked by tests/test_phase6_lists.py. Line comments: Count one /
+# several photos; Conditional first room right / wrong; two-room Find first room blocked.
+# Selection rule: written by probes/pick_phase6.py (module doc = the rule) from the committed 009 slot plan.
+# p3: tasks/phase6_p3.json sha256 b6a24aef39db33170e32da5da2a7379eb778093cbd852dfd2d8a1a08504c883d
+# excluded seeds: 7 46 77 87 96 100 101 109 113 122 124 161 200 208 213 218 221 223 227 230 231 248 259 290 296 300 320 343 346 350 352 375 380 425 437 450 474 480 515 521 542 544 556 562 568 575 581 618 650 655 660 666 668 672 673 675 676 689 690 691 692 693 694 698
+# phase3_run.py --split 3:2 --shard-world 0:1=blocked_storage --shard-world 1:1=blocked_reception --shard-world 2:0=cabinet_open --shard-world 2:1=blocked_ward
+- {run_id: p6c01, task_id: find-toolbox-storage-reception, start_place: hall,      seed: 1824498204, layout_seed: 517, world: blocked_storage}  # first room blocked
+- {run_id: p6c02, task_id: find-toolbox-storage-reception, start_place: office,    seed:  710787292, layout_seed: 119, world: blocked_storage}  # first room blocked
+- {run_id: p6c03, task_id: find-toolbox-reception-storage, start_place: hall,      seed: 1742903274, layout_seed: 384, world: blocked_reception}  # first room blocked
+- {run_id: p6c04, task_id: find-toolbox-reception-storage, start_place: ward,      seed: 1811255759, layout_seed: 287, world: blocked_reception}  # first room blocked
+- {run_id: p6c05, task_id: cond-toolbox-storage-reception, start_place: hall,      seed:  109761765, layout_seed: 434, world: blocked_storage}  # first room wrong
+- {run_id: p6c06, task_id: cond-toolbox-storage-reception, start_place: ward,      seed:  459477004, layout_seed: 204, world: blocked_storage}  # first room wrong
+- {run_id: p6c07, task_id: cond-toolbox-reception-storage, start_place: hall,      seed: 1339831830, layout_seed: 196, world: blocked_reception}  # first room wrong
+- {run_id: p6c08, task_id: cond-toolbox-reception-storage, start_place: office,    seed: 1716300753, layout_seed: 297, world: blocked_reception}  # first room wrong
+- {run_id: p6c09, task_id: count-chairs-office,            start_place: office,    seed: 1068400301, layout_seed: 239, world: blocked_ward}  # several photos
+- {run_id: p6c10, task_id: state-cabinet-open,             start_place: storage,   seed:  998252565, layout_seed: 366, world: blocked_ward}
+- {run_id: p6c11, task_id: find-toolbox,                   start_place: hall,      seed:  592128565, layout_seed: 622, world: closed}
+- {run_id: p6c12, task_id: find-toolbox,                   start_place: office,    seed:  977867671, layout_seed: 646, world: closed}
+- {run_id: p6c13, task_id: find-beds,                      start_place: reception, seed: 1094357693, layout_seed: 438, world: closed}
+- {run_id: p6c14, task_id: state-cabinet-open,             start_place: ward,      seed: 2020907199, layout_seed: 623, world: cabinet_open}
+- {run_id: p6c15, task_id: state-cabinet-open,             start_place: storage,   seed:  618493601, layout_seed: 520, world: closed}
+- {run_id: p6c16, task_id: count-chairs,                   start_place: hall,      seed: 1567656043, layout_seed: 501, world: closed}  # several photos
+- {run_id: p6c17, task_id: count-chairs-storage,           start_place: ward,      seed:  797365040, layout_seed: 326, world: closed}  # several photos
+- {run_id: p6c18, task_id: count-chairs-ward,              start_place: ward,      seed:  694062635, layout_seed: 222, world: cabinet_open}  # one photo
+- {run_id: p6c19, task_id: cond-toolbox-reception-storage, start_place: office,    seed: 1492431640, layout_seed:  52, world: closed}  # first room right
+- {run_id: p6c20, task_id: cond-beds-ward,                 start_place: hall,      seed:  504525141, layout_seed: 475, world: closed}  # first room wrong

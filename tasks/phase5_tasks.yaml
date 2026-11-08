@@ -1,0 +1,29 @@
+# Phase 5 task prompts (task 008), the ones tasks/phase5_*.yaml need that tasks/dev.yaml lacks. Same entry format as
+# dev.yaml. A run list's task_id resolves in tasks/dev.yaml first, then here (agent/tasks.all_tasks; an id in both
+# files is an error). Kept out of dev.yaml: Phase 2 G1 cycles dev.yaml and tests/test_task_scripts.py wants a script
+# per dev.yaml task. Targets only from G9 classes (chair, toolbox). No truth answers here: they are derived by code
+# from sim/worlds/clinic/seeded.truth_for(layout_seed, world) (agent/truth.run_truth); these prompts are meant for
+# seeded layouts only (on the frozen world most are invalid: the toolbox is in storage there).
+
+# Count: the chairs move (0-4 per room), so the counted room varies too. reception = dev.yaml count-chairs.
+- {id: count-chairs-office,  kind: count, prompt: "How many chairs are in the office?", target: {class: chair, room: office}}
+- {id: count-chairs-storage, kind: count, prompt: "How many chairs are in storage?",    target: {class: chair, room: storage}}
+- {id: count-chairs-ward,    kind: count, prompt: "How many chairs are in the ward?",   target: {class: chair, room: ward}}
+
+# Conditional on the moving toolbox: more (first room, second room) pairs than dev.yaml's cond-toolbox (storage ->
+# office) and cond-toolbox-office (office -> storage), so every room is a first and a second room somewhere.
+- {id: cond-toolbox-ward, kind: conditional, prompt: "If the toolbox isn't in the ward, check reception.",
+   target: {object: toolbox_red_1, if_not_in: ward, else_room: reception}}
+- {id: cond-toolbox-reception, kind: conditional, prompt: "If the toolbox isn't in reception, check the office.",
+   target: {object: toolbox_red_1, if_not_in: reception, else_room: office}}
+- {id: cond-toolbox-office-ward, kind: conditional, prompt: "If the toolbox isn't in the office, check the ward.",
+   target: {object: toolbox_red_1, if_not_in: office, else_room: ward}}
+- {id: cond-toolbox-storage-ward, kind: conditional, prompt: "If the toolbox isn't in storage, check the ward.",
+   target: {object: toolbox_red_1, if_not_in: storage, else_room: ward}}
+- {id: cond-toolbox-reception-storage, kind: conditional, prompt: "If the toolbox isn't in reception, check storage.",
+   target: {object: toolbox_red_1, if_not_in: reception, else_room: storage}}
+
+# Deviation 17 fallback (L1): beds (fixed in the ward) fill a Conditional's first-room-right branch when the toolbox
+# is limited to <= 2 rooms; the first-room-wrong branch is dev.yaml's cond-beds-ward (office, then the ward).
+- {id: cond-beds-ward-office, kind: conditional, prompt: "If the beds aren't in the ward, check the office.",
+   target: {class: bed, if_not_in: ward, else_room: office}}

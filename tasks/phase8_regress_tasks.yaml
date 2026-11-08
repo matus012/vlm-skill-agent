@@ -1,0 +1,73 @@
+# Task 011 deviation 20 regression task prompts (synthetic generator output, seeds 1001..; not test prompts).
+- id: p8-9-11-state
+  kind: check_state
+  prompt: Check whether the cabinet is open.
+  target:
+    object: cabinet_blue_1
+    state: open
+- id: p8-9-12-state
+  kind: check_state
+  prompt: Are the cabinet doors open?
+  target:
+    object: cabinet_blue_1
+    state: open
+- id: p8-9-20-state
+  kind: check_state
+  prompt: Check whether the blue cabinet is closed.
+  target:
+    object: cabinet_blue_1
+    state: closed
+- id: p8-9-23-state
+  kind: check_state
+  prompt: Check whether the blue cabinet is closed.
+  target:
+    object: cabinet_blue_1
+    state: closed
+- id: p8-9-26-state
+  kind: check_state
+  prompt: Is the blue cabinet shut?
+  target:
+    object: cabinet_blue_1
+    state: closed
+- id: p8-9-27-state
+  kind: check_state
+  prompt: Has the blue cabinet been left open?
+  target:
+    object: cabinet_blue_1
+    state: open
+- id: p8-9-29-state
+  kind: check_state
+  prompt: Are the doors of the cabinet shut?
+  target:
+    object: cabinet_blue_1
+    state: closed
+- id: p8-9-33-state
+  kind: check_state
+  prompt: Are the cabinet doors closed?
+  target:
+    object: cabinet_blue_1
+    state: closed
+- id: p8-9-41-state
+  kind: check_state
+  prompt: Are the cabinet doors closed?
+  target:
+    object: cabinet_blue_1
+    state: closed
+- id: p8-9-44-state
+  kind: check_state
+  prompt: Check whether the cabinet is open.
+  target:
+    object: cabinet_blue_1
+    state: open
+- id: p8-9-45-state
+  kind: check_state
+  prompt: Are the doors of the cabinet shut?
+  target:
+    object: cabinet_blue_1
+    state: closed
+- id: p8-9-49-state
+  kind: check_state
+  prompt: Is the blue cabinet standing open?
+  target:
+    object: cabinet_blue_1
+    state: open

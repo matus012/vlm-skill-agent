@@ -1,0 +1,50 @@
+# Task 008 counted set: 40 runs = 10 per type (check_state, count, conditional, find) on seeded layouts, each used once,
+# written before any Phase 5 VLM output. Entry {run_id, task_id, start_place, seed, layout_seed} (+ `world:
+# cabinet_open`; absent = closed). task_id resolves in tasks/dev.yaml, then tasks/phase5_tasks.yaml. True answers are
+# never written here: agent/truth.run_truth derives them from truth_for(layout_seed, world).
+# Checked by tests/test_phase5_lists.py; gates: probes/phase5_gates.py. Line comments: Count one / several photos
+# (phase5_seeds.json spans_2_photos of the counted room); Conditional first room right / wrong.
+# Selection rule: written by probes/pick_phase5.py (module doc = the rule) from the committed 2026-11-05 slot plan,
+# re-picked once after deviation 17 (L1: new toolbox placement rule, re-vetted pool, toolbox rooms = G9-passing rooms).
+# toolbox rooms: reception, storage
+# spot-check seeds excluded: 660 666 675 676 690 693 694
+- {run_id: p5c01, task_id: state-cabinet-open,             start_place: hall,      seed:  766405603, layout_seed: 655}
+- {run_id: p5c02, task_id: state-cabinet-open,             start_place: ward,      seed:  169282195, layout_seed: 375}
+- {run_id: p5c03, task_id: state-cabinet-open,             start_place: reception, seed: 1319222588, layout_seed: 296}
+- {run_id: p5c04, task_id: state-cabinet-open,             start_place: hall,      seed:  883163788, layout_seed: 221, world: cabinet_open}
+- {run_id: p5c05, task_id: state-cabinet-open,             start_place: office,    seed:  807841652, layout_seed: 218, world: cabinet_open}
+- {run_id: p5c06, task_id: state-cabinet-open,             start_place: storage,   seed: 1046066372, layout_seed: 231, world: cabinet_open}
+- {run_id: p5c07, task_id: state-cabinet-closed,           start_place: ward,      seed: 1822467572, layout_seed:   7}
+- {run_id: p5c08, task_id: state-cabinet-closed,           start_place: office,    seed:  361421769, layout_seed: 227}
+- {run_id: p5c09, task_id: state-cabinet-closed,           start_place: hall,      seed:  573306551, layout_seed: 343, world: cabinet_open}
+- {run_id: p5c10, task_id: state-cabinet-closed,           start_place: reception, seed:  318068136, layout_seed: 480, world: cabinet_open}
+- {run_id: p5c11, task_id: count-chairs-office,            start_place: hall,      seed: 1468339081, layout_seed:  77}  # several photos
+- {run_id: p5c12, task_id: count-chairs-office,            start_place: reception, seed: 2046750930, layout_seed: 200}  # several photos
+- {run_id: p5c13, task_id: count-chairs-office,            start_place: storage,   seed:   25917336, layout_seed: 259}  # one photo
+- {run_id: p5c14, task_id: count-chairs,                   start_place: ward,      seed:  670379659, layout_seed: 544}  # several photos
+- {run_id: p5c15, task_id: count-chairs,                   start_place: hall,      seed: 1636961886, layout_seed: 300}  # several photos
+- {run_id: p5c16, task_id: count-chairs,                   start_place: reception, seed: 2063802678, layout_seed: 568}  # one photo
+- {run_id: p5c17, task_id: count-chairs-storage,           start_place: office,    seed: 1263628563, layout_seed: 248}  # one photo
+- {run_id: p5c18, task_id: count-chairs-storage,           start_place: hall,      seed: 2126621891, layout_seed: 213}  # one photo
+- {run_id: p5c19, task_id: count-chairs-ward,              start_place: ward,      seed:  256619668, layout_seed: 562}  # several photos
+- {run_id: p5c20, task_id: count-chairs-ward,              start_place: office,    seed:  612575262, layout_seed: 450}  # one photo
+- {run_id: p5c21, task_id: cond-toolbox,                   start_place: hall,      seed: 1123501415, layout_seed: 230}  # first room right
+- {run_id: p5c22, task_id: cond-toolbox-reception,         start_place: ward,      seed:  355246901, layout_seed: 208}  # first room right
+- {run_id: p5c23, task_id: cond-toolbox-reception,         start_place: hall,      seed:  799358677, layout_seed:  96}  # first room right
+- {run_id: p5c24, task_id: cond-toolbox-reception,         start_place: storage,   seed: 1645206793, layout_seed: 124}  # first room right
+- {run_id: p5c25, task_id: cond-toolbox,                   start_place: office,    seed:   29373659, layout_seed: 101}  # first room right
+- {run_id: p5c26, task_id: cond-beds-ward,                 start_place: storage,   seed:  319489750, layout_seed:  87}  # first room wrong
+- {run_id: p5c27, task_id: cond-toolbox-office,            start_place: office,    seed:  752306639, layout_seed: 437}  # first room wrong
+- {run_id: p5c28, task_id: cond-toolbox-ward,              start_place: hall,      seed: 1640366518, layout_seed: 425}  # first room wrong
+- {run_id: p5c29, task_id: cond-beds-ward,                 start_place: reception, seed: 1136705275, layout_seed: 113}  # first room wrong
+- {run_id: p5c30, task_id: cond-toolbox-reception-storage, start_place: reception, seed: 1096272155, layout_seed: 290}  # first room wrong
+- {run_id: p5c31, task_id: find-toolbox,                   start_place: hall,      seed:  231347906, layout_seed: 673}
+- {run_id: p5c32, task_id: find-toolbox,                   start_place: office,    seed: 1647272459, layout_seed: 581}
+- {run_id: p5c33, task_id: find-toolbox,                   start_place: hall,      seed:  214856644, layout_seed: 346}
+- {run_id: p5c34, task_id: find-toolbox,                   start_place: ward,      seed: 2066110488, layout_seed: 223}
+- {run_id: p5c35, task_id: find-toolbox,                   start_place: storage,   seed: 1648652353, layout_seed: 650}
+- {run_id: p5c36, task_id: find-toolbox,                   start_place: office,    seed:  523959001, layout_seed: 668}
+- {run_id: p5c37, task_id: find-toolbox,                   start_place: reception, seed: 1385284514, layout_seed: 320}
+- {run_id: p5c38, task_id: find-toolbox,                   start_place: reception, seed: 1637087289, layout_seed: 122}
+- {run_id: p5c39, task_id: find-beds-where,                start_place: ward,      seed:  663832987, layout_seed: 542}
+- {run_id: p5c40, task_id: find-beds-where,                start_place: hall,      seed:  359986592, layout_seed: 515}

@@ -1,0 +1,415 @@
+{
+ "frozen": {
+  "end_utc": "<volatile>",
+  "git_commit": "<volatile>",
+  "git_dirty": "<volatile>",
+  "gt_trace": {
+   "errors": 0,
+   "last_error": null,
+   "samples": "<volatile>"
+  },
+  "gz_reads": {
+   "attempts": 0,
+   "deaths": [],
+   "reads": 0
+  },
+  "hand_help": true,
+  "hand_help_why": [
+   "step 1: GT moved 3.81 m in 10.2 s sim, bound 2.75 m (navigate_to)"
+  ],
+  "layout_sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "malformed_limit": null,
+  "outcome": "reported",
+  "planner": "scripted:g",
+  "planner_info": {
+   "script": "g"
+  },
+  "report": {
+   "answer": "storage",
+   "note": "seen",
+   "photo": 1
+  },
+  "robot": "turtlebot4",
+  "setup": {
+   "gt_err_m": 0.0,
+   "gt_pose": [
+    2.75,
+    -0.1,
+    0.9854
+   ],
+   "nav_status": "SUCCEEDED",
+   "reached": true,
+   "sim_s": 10.0,
+   "start_place": "hall",
+   "wall_s": "<volatile>"
+  },
+  "sim_s": 14.600000000000009,
+  "start_place": "hall",
+  "start_utc": "<volatile>",
+  "steps": 3,
+  "system_prompt": "You control a robot in a building and see only through its camera. Do the task in the user message.\nPlaces you can go to, each a room of the building: hall, office, reception, storage, ward.\nEach step, call exactly one tool:\n- navigate_to(place): go to a place; returns one photo from where you end up.\n- look_around(): turn on the spot; returns four photos in different directions.\n- report(answer, photo, note): give the final answer; this ends the task.\nPhotos are numbered from 1 in each message. They come from your last navigate_to or look_around (at the start: one photo from where you are); a wrong call does not change them. Older photos are not shown again.\nAnswer format: a find or where task -> one room name from the list above; a yes/no question -> yes or no; a how-many question -> a whole number in digits.\nReport only what you saw in a photo. The photo number in report must be a photo in the current message that shows the evidence.\nYou have at most 12 steps; running out is a failure. A wrong call (no tool, several tools, an unknown place, a wrong answer format) comes back as an error and still costs a step; two wrong calls in a row end the task as a failure.\nLook before you decide. Things of a similar colour can look alike: answer only once a photo clearly shows the very object the task names; if you are not sure, look in the places you have not seen yet.",
+  "system_prompt_sha256": "f509ea8f4559cf2f7b614e6d272901d77c112dfc0be2a33c0c766c66df8cf7b2",
+  "task": {
+   "id": "find-toolbox",
+   "kind": "find",
+   "prompt": "Find the red toolbox.",
+   "target": {
+    "object": "toolbox_red_1"
+   }
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Go to a named place; returns a new photo.",
+     "name": "navigate_to",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "place": {
+        "enum": [
+         "hall",
+         "office",
+         "reception",
+         "storage",
+         "ward"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "place"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Turn on the spot and take four numbered photos.",
+     "name": "look_around",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {},
+      "required": [],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Give the final answer and end the run. photo = number of the photo (in the current message) that shows the evidence. note = free text, never scored.",
+     "name": "report",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "answer": {
+        "description": "room name",
+        "enum": [
+         "hall",
+         "ward",
+         "reception",
+         "office",
+         "storage"
+        ],
+        "type": "string"
+       },
+       "note": {
+        "type": "string"
+       },
+       "photo": {
+        "minimum": 1,
+        "type": "integer"
+       }
+      },
+      "required": [
+       "answer",
+       "photo",
+       "note"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ],
+  "wall_s": "<volatile>",
+  "world": "closed",
+  "world_tag": "fake"
+ },
+ "seeded": {
+  "end_utc": "<volatile>",
+  "git_commit": "<volatile>",
+  "git_dirty": "<volatile>",
+  "gt_trace": {
+   "errors": 0,
+   "last_error": null,
+   "samples": "<volatile>"
+  },
+  "gz_reads": {
+   "attempts": 1,
+   "deaths": [],
+   "reads": 1
+  },
+  "hand_help": true,
+  "hand_help_why": [
+   "step 1: GT moved 3.81 m in 10.2 s sim, bound 2.75 m (navigate_to)"
+  ],
+  "layout_seed": 7,
+  "layout_sha256": "1d0a35ff7da0fd3380ef1ee5d2283e7a6c0e2193c0478aced8f0b9debe0e3d2a",
+  "malformed_limit": null,
+  "outcome": "reported",
+  "planner": "scripted:g",
+  "planner_info": {
+   "script": "g"
+  },
+  "report": {
+   "answer": "storage",
+   "note": "seen",
+   "photo": 1
+  },
+  "robot": "turtlebot4",
+  "setup": {
+   "gt_err_m": 0.0,
+   "gt_pose": [
+    2.75,
+    -0.1,
+    0.9854
+   ],
+   "nav_status": "SUCCEEDED",
+   "reached": true,
+   "sim_s": 10.0,
+   "start_place": "hall",
+   "wall_s": "<volatile>"
+  },
+  "sim_s": 14.600000000000009,
+  "start_place": "hall",
+  "start_utc": "<volatile>",
+  "steps": 3,
+  "system_prompt": "You control a robot in a building and see only through its camera. Do the task in the user message.\nPlaces you can go to, each a room of the building: hall, office, reception, storage, ward.\nEach step, call exactly one tool:\n- navigate_to(place): go to a place; returns one photo from where you end up.\n- look_around(): turn on the spot; returns four photos in different directions.\n- report(answer, photo, note): give the final answer; this ends the task.\nPhotos are numbered from 1 in each message. They come from your last navigate_to or look_around (at the start: one photo from where you are); a wrong call does not change them. Older photos are not shown again.\nAnswer format: a find or where task -> one room name from the list above; a yes/no question -> yes or no; a how-many question -> a whole number in digits.\nReport only what you saw in a photo. The photo number in report must be a photo in the current message that shows the evidence.\nYou have at most 12 steps; running out is a failure. A wrong call (no tool, several tools, an unknown place, a wrong answer format) comes back as an error and still costs a step; two wrong calls in a row end the task as a failure.\nLook before you decide. Things of a similar colour can look alike: answer only once a photo clearly shows the very object the task names; if you are not sure, look in the places you have not seen yet.",
+  "system_prompt_sha256": "f509ea8f4559cf2f7b614e6d272901d77c112dfc0be2a33c0c766c66df8cf7b2",
+  "task": {
+   "id": "find-toolbox",
+   "kind": "find",
+   "prompt": "Find the red toolbox.",
+   "target": {
+    "object": "toolbox_red_1"
+   }
+  },
+  "teleport": {
+   "models": 3,
+   "retries": [],
+   "sends": 3
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Go to a named place; returns a new photo.",
+     "name": "navigate_to",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "place": {
+        "enum": [
+         "hall",
+         "office",
+         "reception",
+         "storage",
+         "ward"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "place"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Turn on the spot and take four numbered photos.",
+     "name": "look_around",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {},
+      "required": [],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Give the final answer and end the run. photo = number of the photo (in the current message) that shows the evidence. note = free text, never scored.",
+     "name": "report",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "answer": {
+        "description": "room name",
+        "enum": [
+         "hall",
+         "ward",
+         "reception",
+         "office",
+         "storage"
+        ],
+        "type": "string"
+       },
+       "note": {
+        "type": "string"
+       },
+       "photo": {
+        "minimum": 1,
+        "type": "integer"
+       }
+      },
+      "required": [
+       "answer",
+       "photo",
+       "note"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ],
+  "wall_s": "<volatile>",
+  "world": "closed",
+  "world_tag": "fake"
+ },
+ "seeded_miss": {
+  "crash": "layout seed 7 teleport did not land: after 3 read-backs: m_chair_orange_2 at [-1.95, 0.5, 0.0, 3.0], want [-2.0, 0.5, 0.0, 3.0]: 0.050 m, 0.00 deg",
+  "crash_origin": "layout_teleport",
+  "end_utc": "<volatile>",
+  "git_commit": "<volatile>",
+  "git_dirty": "<volatile>",
+  "gz_reads": {
+   "attempts": 3,
+   "deaths": [],
+   "reads": 3
+  },
+  "hand_help": false,
+  "hand_help_why": [],
+  "layout_seed": 7,
+  "layout_sha256": "1d0a35ff7da0fd3380ef1ee5d2283e7a6c0e2193c0478aced8f0b9debe0e3d2a",
+  "malformed_limit": null,
+  "outcome": "crash",
+  "planner": "scripted:g",
+  "planner_info": {
+   "script": "g"
+  },
+  "report": null,
+  "robot": "turtlebot4",
+  "setup": {
+   "gt_err_m": null,
+   "reached": null,
+   "skipped": "layout teleport failed",
+   "start_place": "hall"
+  },
+  "sim_s": 0.0,
+  "start_place": "hall",
+  "start_utc": "<volatile>",
+  "steps": 0,
+  "system_prompt": "You control a robot in a building and see only through its camera. Do the task in the user message.\nPlaces you can go to, each a room of the building: hall, office, reception, storage, ward.\nEach step, call exactly one tool:\n- navigate_to(place): go to a place; returns one photo from where you end up.\n- look_around(): turn on the spot; returns four photos in different directions.\n- report(answer, photo, note): give the final answer; this ends the task.\nPhotos are numbered from 1 in each message. They come from your last navigate_to or look_around (at the start: one photo from where you are); a wrong call does not change them. Older photos are not shown again.\nAnswer format: a find or where task -> one room name from the list above; a yes/no question -> yes or no; a how-many question -> a whole number in digits.\nReport only what you saw in a photo. The photo number in report must be a photo in the current message that shows the evidence.\nYou have at most 12 steps; running out is a failure. A wrong call (no tool, several tools, an unknown place, a wrong answer format) comes back as an error and still costs a step; two wrong calls in a row end the task as a failure.\nLook before you decide. Things of a similar colour can look alike: answer only once a photo clearly shows the very object the task names; if you are not sure, look in the places you have not seen yet.",
+  "system_prompt_sha256": "f509ea8f4559cf2f7b614e6d272901d77c112dfc0be2a33c0c766c66df8cf7b2",
+  "task": {
+   "id": "find-toolbox",
+   "kind": "find",
+   "prompt": "Find the red toolbox.",
+   "target": {
+    "object": "toolbox_red_1"
+   }
+  },
+  "teleport": {
+   "models": 3,
+   "retries": [],
+   "sends": 3
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Go to a named place; returns a new photo.",
+     "name": "navigate_to",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "place": {
+        "enum": [
+         "hall",
+         "office",
+         "reception",
+         "storage",
+         "ward"
+        ],
+        "type": "string"
+       }
+      },
+      "required": [
+       "place"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Turn on the spot and take four numbered photos.",
+     "name": "look_around",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {},
+      "required": [],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   },
+   {
+    "function": {
+     "description": "Give the final answer and end the run. photo = number of the photo (in the current message) that shows the evidence. note = free text, never scored.",
+     "name": "report",
+     "parameters": {
+      "additionalProperties": false,
+      "properties": {
+       "answer": {
+        "description": "room name",
+        "enum": [
+         "hall",
+         "ward",
+         "reception",
+         "office",
+         "storage"
+        ],
+        "type": "string"
+       },
+       "note": {
+        "type": "string"
+       },
+       "photo": {
+        "minimum": 1,
+        "type": "integer"
+       }
+      },
+      "required": [
+       "answer",
+       "photo",
+       "note"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ],
+  "wall_s": "<volatile>",
+  "world": "closed",
+  "world_tag": "fake"
+ }
+}

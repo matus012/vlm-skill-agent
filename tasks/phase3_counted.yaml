@@ -1,0 +1,20 @@
+# Task 005 G1 counted set: exactly 10 runs, used once, written and committed before any VLM result existed.
+# How it was chosen (2026-11-04, worker P3, by rule, no VLM output seen):
+# - The 4 Find prompts of the task file (dev.yaml ids): find-toolbox, find-cabinet (-> storage), find-beds-where
+#   (-> ward), find-chairs-plain (-> reception). Beds and chairs get 3 runs, toolbox and cabinet 2, so the answers
+#   split storage 4 / ward 3 / reception 3 (no room is the majority answer).
+# - Starts (places.yaml): every prompt starts once in the hall; beds, chairs and cabinet once in their own target
+#   room; the rest in a non-target room, cycling so every room is used (hall 4, office 2, ward 2, reception 1,
+#   storage 1 incl. 3 in-target starts: storage, ward, reception).
+# - seed = random.Random("115-005-counted").sample(range(1, 2**31 - 1), 10), in run order (Python 3 str seed is
+#   deterministic). Dev blocks use tasks/phase3_dev.yaml (other seeds) and never these run ids.
+- {run_id: c01, task_id: find-toolbox,      start_place: hall,      seed: 39827717}
+- {run_id: c02, task_id: find-toolbox,      start_place: office,    seed: 1026165792}
+- {run_id: c03, task_id: find-cabinet,      start_place: hall,      seed: 464992608}
+- {run_id: c04, task_id: find-cabinet,      start_place: storage,   seed: 1783377439}
+- {run_id: c05, task_id: find-beds-where,   start_place: hall,      seed: 709675363}
+- {run_id: c06, task_id: find-beds-where,   start_place: ward,      seed: 1325021628}
+- {run_id: c07, task_id: find-beds-where,   start_place: office,    seed: 768476414}
+- {run_id: c08, task_id: find-chairs-plain, start_place: hall,      seed: 1579865101}
+- {run_id: c09, task_id: find-chairs-plain, start_place: reception, seed: 325103431}
+- {run_id: c10, task_id: find-chairs-plain, start_place: ward,      seed: 595507819}

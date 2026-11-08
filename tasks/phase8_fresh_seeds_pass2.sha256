@@ -1,0 +1,5 @@
+# Phase 8 pass-2 stream continuation seeds (task 011, a recorded deviation + 20): drawn by a blind helper with secrets.randbits(31),
+# checked against the 75 sealed seeds, the 400 pass-1 fresh seeds and every task-list seed (434 values; 0 collisions,
+# 0 redraws); committed before any realization. The file stays outside the repo: a private directory outside this repo: phase8/
+# (mode 0444). One seed per line, in draw order.
+c082a559e4c6cdee4a618c27dfb945a0bea156f35cd4fc4a2ac3f5064406dcb0  400  fresh_seeds_pass2.txt

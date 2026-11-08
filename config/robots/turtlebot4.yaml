@@ -1,0 +1,19 @@
+robot: turtlebot4
+camera: {hfov_rad: 1.5708, width: 640, height: 480}
+# measured 2026-11-04 (task 002-C) in sim/worlds/test_seg: self-view = rgbd pixels with depth -inf (robot body inside the
+# 0.3 m near clip, drawn as background colour). Max over 73 static headings (5 deg steps) + 49 docked/undocked/driving/
+# turning/near-wall/open poses: top 51 rows, bottom 36 rows (heading-dependent: 0 / 1980 / 22090 / 28880 px, 90 deg
+# periodic). +8 px margin. The dock seen while docked (bottom 81 rows) is a world object, not the robot: not cropped.
+self_crop: {top_px: 59, bottom_px: 44}   # measured (max over columns, poses) + 8 px margin
+self_crop_evidence: 002-C-selfview/002-C-selfview_sweep_raw.json
+# TB4Adapter (adapters/turtlebot4.py, task 003). Topics / frames are the ones the reused Phase 1 code subscribes to
+# (probes/photos.py, probes/map_world_check.py); the adapter asserts they match.
+adapter:
+  world: clinic                                   # Gazebo world name (gz /world/<world>/pose/info, SimTruth)
+  map_knowledge: sim/worlds/clinic/generated/map_knowledge.json   # room polygons for where() (no answers, N8)
+  frames: {map: map, base: base_link, camera: oakd_rgb_camera_frame}
+  topics: {rgb: /oakd/rgb/preview/image_raw, depth: /oakd/rgb/preview/depth, seg: /oakd/seg/labels_map,
+           odom: /odom, cmd_vel: /cmd_vel, nav_action: /navigate_to_pose}
+  go_to_wall_cap_s: 800.0   # wall hang guard only (sim clock stalled), = map_world_check NAV_WALL_CAP_S
+  turn_rounds: 3            # turn + settle + AMCL no-motion updates, re-turn if > 0.3 deg; then <= 3 final turns
+                            # without relocalizing while > 0.3 deg (probes/photos.py face, 006 M2 round 2)

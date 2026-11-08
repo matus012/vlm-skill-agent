@@ -1,0 +1,25 @@
+robot: g1
+# Unitree G1 in MuJoCo (humanoid/). Knobs of humanoid/drive.py and humanoid/adapter_g1.py; values from the 012 design
+# contract (012-design.md section 4) and the design ruling on local avoidance (a recorded deviation). The scene json and the map
+# (room polygons, doorways) are constructor args of G1Adapter, not config: one scene per world.
+drive:
+  stall_m: 0.05        # stall rule: closest distance to the leg target not improved by this much ...
+  stall_s: 10.0        # ... within this many sim seconds -> stop, the adapter returns blocked / STALLED
+  fall_z_m: 0.5        # odom base z below this -> RobotFell (Phase 9 base-height bar)
+  avoid:               # stop-and-detour on /g1/scan (sensor_msgs/LaserScan, pelvis-yaw frame); a recorded deviation
+    look_m: 0.5        # obstacles count only this far ahead along a heading
+    half_width_m: 0.35 # corridor half-width = body radius 0.30 + 0.05 margin (a 0.9 m doorway leaves 0.10 m of play)
+adapter:
+  recentre_m: 0.08       # after each turn: drift from the anchor above this -> walk back to the anchor
+  recentre_stop_m: 0.05  # the recentre leg's stop distance (Drive.goto stop_m)
+  recentre_rounds: 2     # at most this many recentre + re-turn rounds per turn
+  # The policy ignores small holonomic moves (2026-11-06 measurement: a 0.10 m leg at P speed
+  # moves the settled pelvis <= 0.014 m; lateral even at 0.35 m/s). So a recentre is out-and-back (012-p2-drift/outback,
+  # fwd_then_back: settled error 0.014-0.054 m): walk recentre_out_m forward along the heading (< 0.4 m, so
+  # waypoint_cmd does not turn), then back to the anchor with (vx, vy) lifted to >= recentre_min_v.
+  recentre_out_m: 0.3
+  recentre_min_v: 0.25   # m/s; 0.15 moved nothing in minv, 0.25 did
+  turn_timeout_s: 30.0   # sim seconds per Drive call inside a standalone turn_to (drive.py CLI's heading limit)
+  frame_wait_s: 10.0     # wall seconds for an rgb + seg pair stamped after the settle (camera 10 Hz sim)
+hand_help:
+  v_max_mps: 0.71        # |(0.5, 0.5)|, AGILE CommandManager clamp box (geometry.Limits); SLACK_M stays 0.10

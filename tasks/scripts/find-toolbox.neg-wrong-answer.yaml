@@ -1,0 +1,4 @@
+# G2 negative control: wrong answer -> must fail check 1 (answer) only.
+- {name: navigate_to, args: {place: storage}}
+- {name: look_around, args: {}}
+- {name: report, args: {answer: office, photo: 3, note: wrong answer on purpose}}

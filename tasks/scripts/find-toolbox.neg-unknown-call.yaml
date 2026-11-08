@@ -1,0 +1,7 @@
+# G2 negative control: an unknown skill (raw tool call) and an unknown place -> each an error back to the caller,
+# logged, not a crash; the run continues to the correct report (passes, 5 steps).
+- - {id: neg1, type: function, function: {name: fly_to, arguments: '{"place": "storage"}'}}
+- {name: navigate_to, args: {place: kitchen}}
+- {name: navigate_to, args: {place: storage}}
+- {name: look_around, args: {}}
+- {name: report, args: {answer: storage, photo: 3, note: scripted}}

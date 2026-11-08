@@ -1,0 +1,84 @@
+{
+  "pass": 1,
+  "pass_file_sha256": "79d73b94ba5a26631f73aa240063f5eafaf2bf09b14573c99acd125417425da9",
+  "fresh_seeds_sha256": "8893d2ed13b9125685e4c72c93dcf063624be0af19c03be7e4dbe5240e50f3d9",
+  "generator_sha256": "58dee46230ad83b7c49ddb39060d03482444df4b796b2cc98fac338b9b74eb4b",
+  "layouts_in_pass_file": 25,
+  "fresh_seeds_available": 400,
+  "layouts_consumed": 95,
+  "fresh_seeds_used": 70,
+  "entries_examined": {
+    "find": 65,
+    "check_state": 95,
+    "count": 53,
+    "conditional": 71
+  },
+  "entries_skipped_kind_full": {
+    "find": 30,
+    "check_state": 0,
+    "count": 42,
+    "conditional": 24
+  },
+  "drops": {
+    "a_g9_placement": {
+      "find": 40,
+      "check_state": 70,
+      "count": 28,
+      "conditional": 46
+    },
+    "b_check_spec": {
+      "find": 0,
+      "check_state": 0,
+      "count": 0,
+      "conditional": 0
+    },
+    "c_seed_collision": {
+      "find": 0,
+      "check_state": 0,
+      "count": 0,
+      "conditional": 0
+    },
+    "d_start_rule": {
+      "find": 0,
+      "check_state": 0,
+      "count": 0,
+      "conditional": 0
+    }
+  },
+  "kept": {
+    "find": 25,
+    "check_state": 25,
+    "count": 25,
+    "conditional": 25
+  },
+  "yield": {
+    "find": 0.38461538461538464,
+    "check_state": 0.2631578947368421,
+    "count": 0.4716981132075472,
+    "conditional": 0.352112676056338
+  },
+  "starts": {
+    "find": {
+      "hall": 9,
+      "other_room": 14,
+      "answer_room": 2
+    },
+    "check_state": {
+      "hall": 9,
+      "other_room": 14,
+      "answer_room": 2
+    },
+    "count": {
+      "hall": 9,
+      "other_room": 14,
+      "answer_room": 2
+    },
+    "conditional": {
+      "hall": 9,
+      "other_room": 14,
+      "answer_room": 2
+    }
+  },
+  "tasks_sha256": "9db2abf37764eeee88252635e750f8d31f41e8cbf8385538b297fc7bd4a8215f",
+  "list_sha256": "2d7c5eee2d37c0ae132d3bb81413b0505a1f379433a6c203fdd5f4b75ca4a025"
+}

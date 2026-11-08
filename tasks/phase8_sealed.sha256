@@ -1,0 +1,10 @@
+# Seals the Phase 8 test set (generator gen_phase8.py, 3 seed sets, generated prompts, README), written blind in task 007.
+# Plaintext stays under a private directory outside this repo:  (phase8/ + phase8.tar) until Phase 8; nothing of it is in this repo.
+# tar: tar --sort=name --mtime='2026-01-01 00:00:00Z' --owner=0 --group=0 --numeric-owner --mode='u=rw,go=r,a+X' -cf phase8.tar phase8
+e613edad4119e81ee5a17f653f4dae12a15b829960328faff873f1667f6d867c  92160  phase8.tar
+58dee46230ad83b7c49ddb39060d03482444df4b796b2cc98fac338b9b74eb4b  12456  phase8/gen_phase8.py
+79d73b94ba5a26631f73aa240063f5eafaf2bf09b14573c99acd125417425da9  23660  phase8/phase8_pass1.yaml
+26e1dc0d7af8312069d2e1df7a0656eb971f09a3daf570a4909a3faba01bca2d  23393  phase8/phase8_pass2.yaml
+575a191ec9a2cc9e860b6265a4f5996f1d99ea5494811eab1af94d1bff53e900  23428  phase8/phase8_pass3.yaml
+47373dbeaf633be43ff80d064dd51e01c5bb1029625465c1d20d7d4343a20254  1668  phase8/README.md
+9fd47b6deb3af2505dab258f691363318221e6a5c107f5719a0742ab1369bc14  1099  phase8/seeds.yaml

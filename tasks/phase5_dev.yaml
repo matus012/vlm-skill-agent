@@ -1,0 +1,16 @@
+# Task 008 dev set: 12 runs for dev blocks (prompt / packet debugging) on seeded layouts. Never counted. Format and
+# selection rule as tasks/phase5_counted.yaml (probes/pick_phase5.py; one layout-seed draw over both lists).
+# toolbox rooms: reception, storage
+# spot-check seeds excluded: 660 666 675 676 690 693 694
+- {run_id: p5d01, task_id: state-cabinet-open,             start_place: office,    seed:  913791582, layout_seed: 380}
+- {run_id: p5d02, task_id: state-cabinet-open,             start_place: ward,      seed: 1672161738, layout_seed: 109, world: cabinet_open}
+- {run_id: p5d03, task_id: state-cabinet-closed,           start_place: hall,      seed:  564731309, layout_seed: 521}
+- {run_id: p5d04, task_id: count-chairs-office,            start_place: hall,      seed: 1697391621, layout_seed: 352}  # several photos
+- {run_id: p5d05, task_id: count-chairs-ward,              start_place: reception, seed: 1359408845, layout_seed:  46}  # one photo
+- {run_id: p5d06, task_id: count-chairs-storage,           start_place: hall,      seed:  350239614, layout_seed: 100}  # several photos
+- {run_id: p5d07, task_id: cond-toolbox-reception,         start_place: hall,      seed: 1407792635, layout_seed: 575}  # first room right
+- {run_id: p5d08, task_id: cond-toolbox-reception-storage, start_place: office,    seed:  435800805, layout_seed: 556}  # first room wrong
+- {run_id: p5d09, task_id: cond-beds-ward-office,          start_place: reception, seed:   46086720, layout_seed: 350}  # first room right
+- {run_id: p5d10, task_id: find-toolbox,                   start_place: hall,      seed:   53131877, layout_seed: 161}
+- {run_id: p5d11, task_id: find-beds-where,                start_place: storage,   seed: 1392952080, layout_seed: 474}
+- {run_id: p5d12, task_id: find-toolbox,                   start_place: ward,      seed: 2030577085, layout_seed: 618}

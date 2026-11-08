@@ -1,0 +1,9 @@
+# Task 002 places (sim/INTERFACES.md section 5): map frame (== Gazebo world frame, G8), metres / radians.
+# One point per room + hall; photos at yaw + 0/90/180/270 deg (photos.py --yaw0).
+places:
+  hall:      {x: 2.75, y: -0.1, yaw: 0.7854}   # 45 deg: photos at the self-view maximum (G7 crop is exercised);
+                                                 # east half: no ward / reception countable in sight (W2 search)
+  ward:      {x: -2.5, y: 2.0,  yaw: 0.0}
+  office:    {x: 2.5,  y: 3.8,  yaw: 0.0}
+  reception: {x: -2.5, y: -3.4, yaw: 0.0}
+  storage:   {x: 2.5,  y: -3.9, yaw: 0.0}

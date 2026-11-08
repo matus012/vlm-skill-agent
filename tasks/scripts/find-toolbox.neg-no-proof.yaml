@@ -1,0 +1,5 @@
+# G2 negative control: right answer, proof photo 1 (storage heading 0: shelf rack, 0 px of the toolbox in Phase 1
+# evidence, tasks/photo_numbers.json) -> must fail check 2 (proof) only.
+- {name: navigate_to, args: {place: storage}}
+- {name: look_around, args: {}}
+- {name: report, args: {answer: storage, photo: 1, note: proof photo without the object on purpose}}

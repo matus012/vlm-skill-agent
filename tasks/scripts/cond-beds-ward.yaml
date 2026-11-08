@@ -1,0 +1,6 @@
+# Correct ScriptedPlanner script. Start: hall. Photo 2 from tasks/photo_numbers.json (Phase 1 photos).
+- {name: navigate_to, args: {place: office}}
+- {name: look_around, args: {}}
+- {name: navigate_to, args: {place: ward}}
+- {name: look_around, args: {}}
+- {name: report, args: {answer: "ward", photo: 2, note: scripted}}

@@ -1,0 +1,4 @@
+# AMCL overrides merged into the stock turtlebot4 localization.yaml by sim/launch_clinic.sh (INTERFACES section 5).
+# 003 fix round 1 (2026-11-04): update the filter during the final creep and turn; hall AMCL-GT along x 0.207 -> 0.045 m max.
+update_min_d: 0.05
+update_min_a: 0.1

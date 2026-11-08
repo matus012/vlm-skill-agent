@@ -1,0 +1,8 @@
+# Extra control (not a G2 row): bad JSON arguments, then two calls in one step -> each an error back, logged;
+# the run continues to the correct report (passes, 5 steps).
+- - {id: neg1, type: function, function: {name: navigate_to, arguments: '{"place": storage'}}
+- - {id: neg2a, type: function, function: {name: navigate_to, arguments: '{"place": "storage"}'}}
+  - {id: neg2b, type: function, function: {name: look_around, arguments: '{}'}}
+- {name: navigate_to, args: {place: storage}}
+- {name: look_around, args: {}}
+- {name: report, args: {answer: storage, photo: 4, note: scripted}}

@@ -1,0 +1,15 @@
+# Task 009 dev set: 10 runs for dev blocks on seeded layouts. Never counted. Format and selection rule as
+# tasks/phase6_counted.yaml (probes/pick_phase6.py; one layout-seed draw over both lists).
+# p3: tasks/phase6_p3.json sha256 b6a24aef39db33170e32da5da2a7379eb778093cbd852dfd2d8a1a08504c883d
+# excluded seeds: 7 46 77 87 96 100 101 109 113 122 124 161 200 208 213 218 221 223 227 230 231 248 259 290 296 300 320 343 346 350 352 375 380 425 437 450 474 480 515 521 542 544 556 562 568 575 581 618 650 655 660 666 668 672 673 675 676 689 690 691 692 693 694 698
+# phase3_run.py --split 3:2 --shard-world 0:1=blocked_storage --shard-world 1:1=blocked_reception --shard-world 2:0=cabinet_open --shard-world 2:1=blocked_ward
+- {run_id: p6d01, task_id: find-toolbox-storage-reception, start_place: ward,      seed:   40255951, layout_seed: 254, world: blocked_storage}  # first room blocked
+- {run_id: p6d02, task_id: find-toolbox-reception-storage, start_place: hall,      seed: 2106984819, layout_seed: 583, world: blocked_reception}  # first room blocked
+- {run_id: p6d03, task_id: cond-toolbox-storage-reception, start_place: hall,      seed: 1110782142, layout_seed: 256, world: blocked_storage}  # first room wrong
+- {run_id: p6d04, task_id: cond-toolbox-reception-storage, start_place: office,    seed: 1323964182, layout_seed: 540, world: blocked_reception}  # first room wrong
+- {run_id: p6d05, task_id: count-chairs-office,            start_place: hall,      seed: 1307819043, layout_seed: 334, world: blocked_ward}  # one photo
+- {run_id: p6d06, task_id: state-cabinet-open,             start_place: reception, seed: 1067564548, layout_seed: 284, world: blocked_ward}
+- {run_id: p6d07, task_id: find-toolbox,                   start_place: ward,      seed:  941615822, layout_seed: 580, world: closed}
+- {run_id: p6d08, task_id: count-chairs-storage,           start_place: hall,      seed: 1523080315, layout_seed: 571, world: closed}  # one photo
+- {run_id: p6d09, task_id: state-cabinet-open,             start_place: office,    seed: 1310967429, layout_seed: 273, world: cabinet_open}
+- {run_id: p6d10, task_id: count-chairs,                   start_place: ward,      seed:  870605680, layout_seed: 612, world: cabinet_open}  # one photo

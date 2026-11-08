@@ -1,0 +1,18 @@
+# Task 007 dev set: 10 runs for dev blocks (prompt / packet debugging). Never counted. Format as
+# tasks/phase4_counted.yaml (optional `world: cabinet_open`, absent = closed).
+# Chosen by rule (2026-11-05): check_state 3 (both worlds, both answers: open? x closed = no, open? x open = yes,
+# closed? x open = no), count 2 (both prompts from the hall), conditional 3 (cond-toolbox: first room right;
+# cond-beds-ward, cond-cabinet-office: first room wrong), find 2 (005 prompts). Each (task, start, world) here
+# that the counted set also has differs from it by seed: no prompt x start x seed triple is shared.
+# seed = random.Random("115-007-dev").sample(range(1, 2**31 - 1), 10), in run order; disjoint from every seed in
+# tasks/phase3_*.yaml and tasks/phase4_counted.yaml.
+- {run_id: p4d01, task_id: state-cabinet-open,    start_place: office,    seed:  112158639}
+- {run_id: p4d02, task_id: state-cabinet-open,    start_place: ward,      seed:  635669646, world: cabinet_open}
+- {run_id: p4d03, task_id: state-cabinet-closed,  start_place: storage,   seed:  343761619, world: cabinet_open}
+- {run_id: p4d04, task_id: count-chairs,          start_place: hall,      seed: 1777557465}
+- {run_id: p4d05, task_id: count-beds,            start_place: hall,      seed:  586336936}
+- {run_id: p4d06, task_id: cond-toolbox,          start_place: reception, seed:  900132915}
+- {run_id: p4d07, task_id: cond-beds-ward,        start_place: office,    seed:  960746547}
+- {run_id: p4d08, task_id: cond-cabinet-office,   start_place: hall,      seed:  962553765}
+- {run_id: p4d09, task_id: find-toolbox,          start_place: office,    seed: 1029807452}
+- {run_id: p4d10, task_id: find-beds-where,       start_place: reception, seed: 1180153345}
