@@ -1,12 +1,27 @@
 # vlm-skill-agent
 
+[![demo video preview (GIF, 26 s): click to play the full 2.5-minute video](media/vlm-agent-demo.gif)](media/vlm-agent-demo.mp4)
+
+**Watch:** [the 2.5-minute demo video](media/vlm-agent-demo.mp4) (above: a sped-up preview) ·
+[the 4-minute walk-through](media/vlm-skill-agent-demo.mp4), one task per type, with one counted failure ·
+**Read:** [the full explanation (PDF)](docs/vlm-skill-agent-explained.pdf), rebuildable from
+[`docs/explained/`](docs/explained/)
+
+![overview: the simulated clinic and the loop photos → VLM → skill → robot](media/overview.png)
+
+**Goal:** find out whether one vision-language model, with one prompt and no training, can drive different robot
+bodies through ordinary tasks (find an object, check a cabinet, count chairs, act on what it saw) from camera photos
+alone. Measured on the same 100 unseen tasks, a wheeled TurtleBot 4 scored 91/100 and a walking Unitree G1 humanoid
+93/100, with 0 lines of the agent changed between them. Simulation only.
+
+[![walk-through preview: click for the 4-minute video](media/vlm-skill-agent-demo.gif)](media/vlm-skill-agent-demo.mp4)
+
 A vision-language model (VLM) plans a robot's work one step at a time. At each step it looks at numbered camera photos
 and picks exactly one skill: `navigate_to` (a named place), `look_around` (four photos, 90 degrees apart) or
 `report` (the answer). A runtime checks the call against a schema and runs it. The skills drive a TurtleBot 4 in
 Gazebo, and, with no change to the agent, a Unitree G1 humanoid in MuJoCo. The VLM never sees maps, coordinates, joint
 angles or which robot it is driving: only photos, place names, its own history and the task text.
 
-![demo](media/demo.gif)
 
 ## Architecture
 

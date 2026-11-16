@@ -54,3 +54,7 @@ MUJOCO_LOG.TXT
 
 # the demo GIF is shipped
 !media/demo.gif
+
+# README media (demo videos, previews, overview image) are part of the release
+!media/
+!media/*
