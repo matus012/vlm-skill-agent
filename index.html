@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VLM Skill Agent: demo</title>
+<style>
+  :root { --bg: #ffffff; --fg: #1f2328; --muted: #59636e; --link: #0969da; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1; --link: #4493f8; } }
+  body { background: var(--bg); color: var(--fg); margin: 0; font: 16px/1.5 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  main { max-width: 1000px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 28px; margin: 0 0 4px; }
+  h2 { font-size: 20px; margin: 32px 0 8px; }
+  p { margin: 4px 0 12px; }
+  .muted { color: var(--muted); }
+  a { color: var(--link); }
+  video { width: 100%; height: auto; background: #000; border-radius: 6px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>VLM Skill Agent</h1>
+  <p class="muted">One vision-language model drives a TurtleBot 4 (Gazebo) and a Unitree G1 humanoid (MuJoCo) from camera
+    photos alone: 91/100 and 93/100 on the same 100 unseen tasks, with 0 lines of the agent changed. Simulation only.</p>
+
+  <h2 id="demo">Demo (2.5 min)</h2>
+  <video controls preload="metadata" poster="media/overview.png" src="media/vlm-agent-demo.mp4"></video>
+
+  <h2 id="walkthrough">Walk-through (4 min): one task per type, with one counted failure</h2>
+  <video controls preload="metadata" src="media/vlm-skill-agent-demo.mp4"></video>
+
+  <p><a href="https://github.com/matus012/vlm-skill-agent">Code and README</a> ·
+    <a href="docs/vlm-skill-agent-explained.pdf">Full explanation (PDF)</a></p>
+</main>
+</body>
+</html>

@@ -1,9 +1,10 @@
 # vlm-skill-agent
 
-[![demo video preview (GIF, 26 s): click to play the full 2.5-minute video](media/vlm-agent-demo.gif)](media/vlm-agent-demo.mp4)
+[![demo video preview (GIF, 26 s): click to play the full 2.5-minute video](media/vlm-agent-demo.gif)](https://matus012.github.io/vlm-skill-agent/#demo)
 
-**Watch:** [the 2.5-minute demo video](media/vlm-agent-demo.mp4) (above: a sped-up preview) ·
-[the 4-minute walk-through](media/vlm-skill-agent-demo.mp4), one task per type, with one counted failure ·
+**▶ Play:** [the 2.5-minute demo video](https://matus012.github.io/vlm-skill-agent/#demo) (above: a sped-up preview) ·
+[the 4-minute walk-through](https://matus012.github.io/vlm-skill-agent/#walkthrough), one task per type, with one counted failure
+([download mp4s](media/)) ·
 **Read:** [the full explanation (PDF)](docs/vlm-skill-agent-explained.pdf), rebuildable from
 [`docs/explained/`](docs/explained/)
 
@@ -14,7 +15,7 @@ bodies through ordinary tasks (find an object, check a cabinet, count chairs, ac
 alone. Measured on the same 100 unseen tasks, a wheeled TurtleBot 4 scored 91/100 and a walking Unitree G1 humanoid
 93/100, with 0 lines of the agent changed between them. Simulation only.
 
-[![walk-through preview: click for the 4-minute video](media/vlm-skill-agent-demo.gif)](media/vlm-skill-agent-demo.mp4)
+[![walk-through preview: click for the 4-minute video](media/vlm-skill-agent-demo.gif)](https://matus012.github.io/vlm-skill-agent/#walkthrough)
 
 A vision-language model (VLM) plans a robot's work one step at a time. At each step it looks at numbered camera photos
 and picks exactly one skill: `navigate_to` (a named place), `look_around` (four photos, 90 degrees apart) or
