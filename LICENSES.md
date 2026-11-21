@@ -39,5 +39,5 @@ Details for the G1 stack are also in `humanoid/LICENSES.md`.
 |---|---|---|
 | `Qwen/Qwen3.8-27B` (the VLM) | https://huggingface.co/Qwen/Qwen3.8-27B | Apache-2.0 (the licence field of the model card, checked 2026-11-06) |
 
-No weights, container images, videos or camera frames are stored in this repository, except the README's demo GIF
-(`media/demo.gif`, cut from this project's own showcase video).
+No weights or container images are stored in this repository. The videos, GIFs and stills in `media/` and the frames
+in the PDF under `docs/` are this project's own renders of its simulations.

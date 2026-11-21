@@ -20,14 +20,16 @@
 <body>
 <main>
   <h1>VLM Skill Agent</h1>
-  <p class="muted">One vision-language model drives a TurtleBot 4 (Gazebo) and a Unitree G1 humanoid (MuJoCo) from camera
-    photos alone: 91/100 and 93/100 on the same 100 unseen tasks, with 0 lines of the agent changed. Simulation only.</p>
+  <p class="muted">One AI model that reads camera photos drives a wheeled TurtleBot 4 (Gazebo) and a walking Unitree G1
+    humanoid (MuJoCo): 91/100 and 93/100 on the same 100 unseen tasks, with the same agent code on both robots. Simulation only.</p>
 
   <h2 id="demo">Demo (2.5 min)</h2>
-  <video controls preload="metadata" poster="media/overview.png" src="media/vlm-agent-demo.mp4"></video>
+  <video autoplay muted loop playsinline controls preload="auto" poster="media/demo-poster.jpg" src="media/vlm-agent-demo.mp4"
+    aria-label="2.5-minute demo video"></video>
 
-  <h2 id="walkthrough">Walk-through (4 min): one task per type, with one counted failure</h2>
-  <video controls preload="metadata" src="media/vlm-skill-agent-demo.mp4"></video>
+  <h2 id="walkthrough">Walk-through (4 min): one task of each kind, with one counted failure</h2>
+  <video controls preload="none" poster="media/walkthrough-thumb.png" src="media/vlm-skill-agent-demo.mp4"
+    aria-label="4-minute walk-through video"></video>
 
   <p><a href="https://github.com/matus012/vlm-skill-agent">Code and README</a> ·
     <a href="docs/vlm-skill-agent-explained.pdf">Full explanation (PDF)</a></p>

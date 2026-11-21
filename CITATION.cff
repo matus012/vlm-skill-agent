@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "VLM Skill Agent: one vision-language model driving a wheeled robot and a humanoid from camera photos"
+type: software
+authors:
+  - family-names: Filo
+    given-names: Matus
+repository-code: "https://github.com/matus012/vlm-skill-agent"
+url: "https://matus012.github.io/vlm-skill-agent/"
+license: MIT

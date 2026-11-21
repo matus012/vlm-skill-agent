@@ -58,3 +58,6 @@ MUJOCO_LOG.TXT
 # README media (demo videos, previews, overview image) are part of the release
 !media/
 !media/*
+
+# run folders written by adapters/run_task.py and probes/phase3_run.py (keeps the tree clean for counted runs)
+/runs/
